@@ -84,14 +84,14 @@ packages:
   simple_bloc:
     dependency: transitive
     description:
-      path: "../../packages/simple_bloc"
+      path: "..\\..\\packages\\simple_bloc"
       relative: true
     source: path
     version: "0.0.1"
   simple_bloc_flutter:
     dependency: "direct main"
     description:
-      path: "../../packages/simple_bloc_flutter"
+      path: "..\\..\\packages\\simple_bloc_flutter"
       relative: true
     source: path
     version: "0.0.1"

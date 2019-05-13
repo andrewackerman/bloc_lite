@@ -1,62 +1,126 @@
 import 'dart:async';
 
-import 'package:rxdart/rxdart.dart';
+import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
+import 'package:rxdart/rxdart.dart';
 
-import 'bloc_base.dart';
+abstract class BlocController {
 
-abstract class Bloc<V> extends BlocBase<V> {
+  BlocController([Key key]) : this.withState(null, key);
+  BlocController.withState([BlocState state, Key key])
+      : widgetKey = key,
+        _subject = PublishSubject() {
+    if (this is IBlocControllerWithState) {
+      if (state != null) {
+        (this as IBlocControllerWithState).registerState(state);
+      } else {
+        (this as IBlocControllerWithState).registerState(
+          (this as IBlocControllerWithState).initialState,
+        );
+      }
+    }
+  }
 
-  Bloc(V initialState)
-    : super(initialState);
+  final Key widgetKey;
+  final PublishSubject<BlocController> _subject;
+
+  StreamSink<BlocController> get sink => _subject.sink;
+  Observable<BlocController> get stream => _subject.stream;
+
+  StreamSubscription subscribeToUpdates(void Function (BlocController) onUpdate, { void Function(Error, StackTrace) onError, void Function() onDone }) {
+    return _subject.listen(onUpdate, onError: onError, onDone: onDone);
+  }
+
+  Future<void> publishUpdate() async {
+    if (_subject.isClosed) return;
+
+    try {
+      preUpdatePublished();
+      _subject.add(this);
+      postUpdatePublished();
+    } catch (e, st) {
+      onError(e, st);
+    }
+  }
 
   @mustCallSuper
   void dispose() {
-    super.dispose();
+    _subject.close();
   }
+
+  @protected
+  Stream<BlocController> transform(Stream<BlocController> input) => input;
+  @protected
+  void onError(Object error, StackTrace stackTrace) => print(error);
+  @protected
+  void preUpdatePublished() => null;
+  @protected
+  void postUpdatePublished() => null;
 
 }
 
-abstract class EventBloc<E, V> extends BlocBase<V> {
+abstract class IBlocControllerWithState<S extends BlocState> {
 
-  EventBloc(V initialState)
-    : _eventSubject = PublishSubject<E>(),
-      super(initialState);
+  S _state;
+  S get state => _state;
 
-  final PublishSubject<E> _eventSubject;
+  S get initialState;
 
-  Observable get eventStream => _eventSubject.stream;
+  void registerState(S state) {
+    _state = state;
+    _state._registerController(this as BlocController);
 
-  StreamSubscription<E> subscribeToEvents(void Function (E) onEvent, { void Function(Error, StackTrace) onError, void Function() onDone }) {
-    return _eventSubject.listen(onEvent, onError: onError, onDone: onDone);
+    _state._subject.listen(onStateUpdate, onError: onStateError, onDone: onStateDone);
+  }
+  
+  @protected
+  void onStateUpdate(S data) {
+    (this as BlocController).publishUpdate();
   }
 
   @protected
-  Stream<V> handleEvent(E event, dynamic payload);
+  void onStateError(Object error, StackTrace stackTrace) {
+    print(error);
+    print(stackTrace);
+  }
 
-  void dispatch(E event, dynamic payload) async {
-    await for (final update in handleEvent(event, payload)) {
-      publishValue(update);
+  @protected
+  void onStateDone() => null;
+}
+
+abstract class BlocState {
+  
+  BlocState()
+    : _subject = PublishSubject();
+
+  final PublishSubject<BlocState> _subject;
+
+  BlocController controller;
+
+  StreamSink<BlocState> get sink => _subject.sink;
+  Observable<BlocState> get stream => _subject.stream;
+
+  void _registerController(BlocController controller) {
+    this.controller = controller;
+  }
+
+  Future<void> mutate(void Function() mutation) async {
+    try {
+      preMutate();
+      mutation();
+      postMutate();
+
+      _subject.add(this);
+    } catch(e, st) {
+      this.onError(e, st);
     }
-
-    publishEvent(event);
   }
 
   @protected
-  void publishEvent(E event) {
-    if (_eventSubject.isClosed) return;
-
-    _eventSubject.add(event);
-    onEvent(event);
-  }
-
-  @mustCallSuper
-  void dispose() {
-    _eventSubject.close();
-    super.dispose();
-  }
-
+  void onError(Object error, StackTrace stackTrace) => print(error);
   @protected
-  void onEvent(E event) => null;
+  void preMutate() => null;
+  @protected
+  void postMutate() => null;
 
 }

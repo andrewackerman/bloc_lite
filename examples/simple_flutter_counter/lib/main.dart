@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'simple_counter_page.dart';
-import 'state_counter_page.dart';
+import 'package:simple_bloc/simple_bloc.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,33 +11,65 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ExampleHome(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('simple_counter_page'),
+        ),
+        body: Center(
+          child: SimpleCounterPage(),
+        ),
+      ),
     );
   }
 }
 
-class ExampleHome extends StatelessWidget {
+class SimpleCounterPage extends StatefulWidget {
 
   @override
-  Widget build(BuildContext cxt) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('simple_bloc example'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+  State createState() => SimpleCounterPageState();
+
+}
+
+class SimpleCounterPageState extends State<SimpleCounterPage> {
+
+  final CounterBlocController controller = CounterBlocController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(8),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(8),
-              child: SimpleCounterPage(),
-            ),
+          Text(
+            'Current value of the counter bloc:',
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(8),
-              child: StateCounterPage(),
-            ),
+          BlocWidget(controller: controller, builder: (cxt, bloc) {
+            return Text(
+              '${bloc.counter}',
+              style: Theme.of(context).textTheme.display1,
+            );
+          }),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FloatingActionButton(
+                onPressed: controller.decrementCounter,
+                tooltip: 'Decrement',
+                child: Icon(Icons.remove),
+              ),
+              FloatingActionButton(
+                onPressed: controller.incrementCounter,
+                tooltip: 'Increment',
+                child: Icon(Icons.add),
+              ),
+            ],
           ),
         ],
       ),
@@ -48,4 +78,22 @@ class ExampleHome extends StatelessWidget {
 
 }
 
+class CounterBlocController extends BlocController {
 
+  int counter;
+
+  CounterBlocController()  {
+    counter = 0;
+  }
+
+  incrementCounter() {
+    counter++;
+    publishUpdate();
+  }
+
+  decrementCounter() {
+    counter--;
+    publishUpdate();
+  }
+  
+}

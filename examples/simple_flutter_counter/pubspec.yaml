@@ -1,6 +1,5 @@
 name: simple_flutter_counter
 description: A new Flutter project.
-
 version: 1.0.0+1
 
 environment:
@@ -9,8 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  simple_bloc_flutter:
-    path: ../../packages/simple_bloc_flutter
+  simple_bloc:
+    path: ../../packages/simple_bloc
 
 dev_dependencies:
   flutter_test:
