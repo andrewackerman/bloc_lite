@@ -10,12 +10,12 @@ abstract class BlocController {
   BlocController.withState([BlocState state, Key key])
       : widgetKey = key,
         _subject = PublishSubject() {
-    if (this is IBlocControllerWithState) {
+    if (this is BlocControllerWithState) {
       if (state != null) {
-        (this as IBlocControllerWithState).registerState(state);
+        (this as BlocControllerWithState).registerState(state);
       } else {
-        (this as IBlocControllerWithState).registerState(
-          (this as IBlocControllerWithState).initialState,
+        (this as BlocControllerWithState).registerState(
+          (this as BlocControllerWithState).initialState,
         );
       }
     }
@@ -59,7 +59,7 @@ abstract class BlocController {
 
 }
 
-abstract class IBlocControllerWithState<S extends BlocState> {
+abstract class BlocControllerWithState<S extends BlocState> {
 
   S _state;
   S get state => _state;

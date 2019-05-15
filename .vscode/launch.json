@@ -21,6 +21,12 @@
             "type": "dart",
             "request": "launch",
             "program": "examples/simple_flutter_counter_with_state/lib/main.dart"
+        },
+        {
+            "name": "simple_bloc_todo",
+            "type": "dart",
+            "request": "launch",
+            "program": "examples/simple_bloc_todo/lib/main.dart"
         }
     ]
 }

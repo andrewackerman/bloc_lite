@@ -47,11 +47,11 @@ class SimpleCounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final controller =  InheritedBloc.of<CounterBlocController>(context);
+    final controller = InheritedBloc.of<CounterBlocController>(context);
     
     return Container(
       padding: EdgeInsets.all(8),
-      child: BlocWidget<CounterBlocController>.inherited(context: context, builder: (cxt, bloc) {
+      child: BlocWidget(controller: controller, builder: (cxt, bloc) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

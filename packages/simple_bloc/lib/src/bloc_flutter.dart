@@ -3,6 +3,11 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:simple_bloc/simple_bloc.dart';
 
+typedef BlocBuilder<B extends BlocController> = Widget Function(BuildContext context, B controller);
+typedef BlocStateBuilder<B extends BlocController, S extends BlocState> = Widget Function(BuildContext context, B controller, S state);
+typedef BlocBuilderOnError = Widget Function(BuildContext context, Object error, StackTrace stackTrace);
+typedef BlocBuilderOnClose = Widget Function(BuildContext context);
+
 Type _typeOf<T>() => T;
 
 class InheritedBloc<B extends BlocController> extends InheritedWidget {
@@ -21,11 +26,7 @@ class InheritedBloc<B extends BlocController> extends InheritedWidget {
 
   static B of<B extends BlocController>(BuildContext context) {
     final type = _typeOf<InheritedBloc<B>>();
-    print(type);
-    final inherited = context.ancestorInheritedElementForWidgetOfExactType(type);
-    print(inherited);
-    InheritedBloc provider = inherited?.widget;
-    print(provider);
+    final provider = context.ancestorInheritedElementForWidgetOfExactType(type)?.widget as InheritedBloc<B>;
     return provider?.bloc;
   }
 
@@ -77,18 +78,30 @@ class BlocWidget<B extends BlocController> extends StatefulWidget {
        assert(builder != null),
        super(key: key);
 
-  BlocWidget.inherited({
-    Key key,
-    @required BuildContext context,
-    @required this.builder,
-    this.builderOnError,
-    this.builderOnClose,
-  }) : controller = InheritedBloc.of<B>(context);
+  // Disabled until the typing issue is resolved
+  // factory BlocWidget.inherited({
+  //   Key key,
+  //   @required BuildContext context,
+  //   @required Widget Function(BuildContext, B) builder,
+  //   Widget Function(BuildContext, Error, StackTrace) builderOnError,
+  //   Widget Function(BuildContext) builderOnClose,
+  // }) {
+  //   final controller = InheritedBloc.of<B>(context);
+  //   assert(controller != null);
+
+  //   return BlocWidget(
+  //     key: key,
+  //     controller: controller,
+  //     builder: builder,
+  //     builderOnError: builderOnError,
+  //     builderOnClose: builderOnClose,
+  //   );
+  // }
 
   final B controller;
-  final Widget Function(BuildContext, B) builder;
-  final Widget Function(BuildContext, Error, StackTrace) builderOnError;
-  final Widget Function(BuildContext) builderOnClose;
+  final BlocBuilder<B> builder;
+  final BlocBuilderOnError builderOnError;
+  final BlocBuilderOnClose builderOnClose;
 
   @override
   _BlocWidgetState<B> createState() => _BlocWidgetState<B>();
@@ -168,6 +181,9 @@ class _BlocWidgetState<B extends BlocController> extends State<BlocWidget> {
       return widget.builderOnError(cxt, _error, _stackTrace);
     }
     
+    print('building bloc widget');
+    print(widget.builder);
+    print(widget.controller);
     return widget.builder(cxt, widget.controller);
   }
 
@@ -182,28 +198,28 @@ class BlocStateWidget<B extends BlocController, S extends BlocState> extends Sta
     this.builderOnError,
     this.builderOnClose,
   }) : assert(controller != null),
-       assert(controller is IBlocControllerWithState),
+       assert(controller is BlocControllerWithState),
        assert(builder != null),
        super(key: key);
 
-  BlocStateWidget.inherited({
-    Key key,
-    @required BuildContext context,
-    @required Widget Function(BuildContext, B, S) builder,
-    Function(BuildContext, Error, StackTrace) builderOnError,
-    Widget Function(BuildContext) builderOnClose,
-  }) : this(
-      key: key,
-      controller: InheritedBloc.of<B>(context),
-      builder: builder,
-      builderOnError: builderOnError,
-      builderOnClose: builderOnClose,
-    );
+  // BlocStateWidget.inherited({
+  //   Key key,
+  //   @required BuildContext context,
+  //   @required Widget Function(BuildContext, B, S) builder,
+  //   Function(BuildContext, Error, StackTrace) builderOnError,
+  //   Widget Function(BuildContext) builderOnClose,
+  // }) : this(
+  //     key: key,
+  //     controller: InheritedBloc.of<B>(context),
+  //     builder: builder,
+  //     builderOnError: builderOnError,
+  //     builderOnClose: builderOnClose,
+  //   );
 
   final B controller;
-  final Widget Function(BuildContext, B, S) builder;
-  final Widget Function(BuildContext, Error, StackTrace) builderOnError;
-  final Widget Function(BuildContext) builderOnClose;
+  final BlocStateBuilder<B, S> builder;
+  final BlocBuilderOnError builderOnError;
+  final BlocBuilderOnClose builderOnClose;
 
   @override
   _BlocStateWidgetState<B, S> createState() => _BlocStateWidgetState<B, S>();
@@ -283,7 +299,7 @@ class _BlocStateWidgetState<B extends BlocController, S extends BlocState> exten
       return widget.builderOnError(cxt, _error, _stackTrace);
     }
     
-    return widget.builder(cxt, widget.controller, (widget.controller as IBlocControllerWithState).state);
+    return widget.builder(cxt, widget.controller, (widget.controller as BlocControllerWithState).state);
   }
 
 }

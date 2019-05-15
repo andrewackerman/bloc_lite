@@ -78,7 +78,7 @@ class SimpleCounterPageState extends State<SimpleCounterPage> {
 
 }
 
-class CounterBlocController extends BlocController with IBlocControllerWithState<CounterBlocState> {
+class CounterBlocController extends BlocController with BlocControllerWithState<CounterBlocState> {
 
   @override
   CounterBlocState get initialState => CounterBlocState()..counter = 0;
