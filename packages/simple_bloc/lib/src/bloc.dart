@@ -1,15 +1,13 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class BlocController {
 
-  BlocController([Key key]) : this.withState(null, key);
-  BlocController.withState([BlocState state, Key key])
-      : widgetKey = key,
-        _subject = PublishSubject() {
+  BlocController() : this.withState(null);
+  BlocController.withState([BlocState state])
+      : _subject = PublishSubject() {
     if (this is BlocControllerWithState) {
       if (state != null) {
         (this as BlocControllerWithState).registerState(state);
@@ -21,7 +19,6 @@ abstract class BlocController {
     }
   }
 
-  final Key widgetKey;
   final PublishSubject<BlocController> _subject;
 
   StreamSink<BlocController> get sink => _subject.sink;

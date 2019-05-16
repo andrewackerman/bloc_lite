@@ -9,10 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  simple_bloc:
-    path: ../../packages/simple_bloc
+  simple_bloc_flutter:
+    path: ../../packages/simple_bloc_flutter
   uuid: 2.0.1
-  intl: 0.15.8
 
 dev_dependencies:
   flutter_test:

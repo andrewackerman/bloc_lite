@@ -82,9 +82,16 @@ packages:
     source: hosted
     version: "0.22.0"
   simple_bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       path: "..\\..\\packages\\simple_bloc"
+      relative: true
+    source: path
+    version: "0.0.1"
+  simple_bloc_flutter:
+    dependency: "direct main"
+    description:
+      path: "..\\..\\packages\\simple_bloc_flutter"
       relative: true
     source: path
     version: "0.0.1"

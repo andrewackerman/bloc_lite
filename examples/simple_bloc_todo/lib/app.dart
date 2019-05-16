@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:simple_bloc/simple_bloc.dart';
+import 'package:simple_bloc_flutter/simple_bloc_flutter.dart';
 import 'package:simple_bloc_todo/bloc/todo.dart';
+import 'package:simple_bloc_todo/model/todo.dart';
 import 'package:simple_bloc_todo/theme.dart';
 
 import 'screens/add_todo_screen.dart';
@@ -16,6 +17,18 @@ class ToDoApp extends StatefulWidget {
 class ToDoAppState extends State<ToDoApp> {
 
   TodoController todoController = TodoController();
+
+  @override
+  void initState() {
+    todoController.state.todos = [
+      Todo('Do Thing A'),
+      Todo('Do Thing B'),
+      Todo('Do Thing C'),
+      Todo('Do Thing D'),
+      Todo('Do Thing E'),
+    ];
+    super.initState();
+  }
 
   Widget scaffold(BuildContext cxt, Widget child) {
     return InheritedBloc(

@@ -78,25 +78,24 @@ class BlocWidget<B extends BlocController> extends StatefulWidget {
        assert(builder != null),
        super(key: key);
 
-  // Disabled until the typing issue is resolved
-  // factory BlocWidget.inherited({
-  //   Key key,
-  //   @required BuildContext context,
-  //   @required Widget Function(BuildContext, B) builder,
-  //   Widget Function(BuildContext, Error, StackTrace) builderOnError,
-  //   Widget Function(BuildContext) builderOnClose,
-  // }) {
-  //   final controller = InheritedBloc.of<B>(context);
-  //   assert(controller != null);
+  factory BlocWidget.inherited({
+    Key key,
+    @required BuildContext context,
+    @required Widget Function(BuildContext, B) builder,
+    Widget Function(BuildContext, Error, StackTrace) builderOnError,
+    Widget Function(BuildContext) builderOnClose,
+  }) {
+    final controller = InheritedBloc.of<B>(context);
+    assert(controller != null);
 
-  //   return BlocWidget(
-  //     key: key,
-  //     controller: controller,
-  //     builder: builder,
-  //     builderOnError: builderOnError,
-  //     builderOnClose: builderOnClose,
-  //   );
-  // }
+    return BlocWidget(
+      key: key,
+      controller: controller,
+      builder: builder,
+      builderOnError: builderOnError,
+      builderOnClose: builderOnClose,
+    );
+  }
 
   final B controller;
   final BlocBuilder<B> builder;
@@ -108,7 +107,7 @@ class BlocWidget<B extends BlocController> extends StatefulWidget {
 
 }
 
-class _BlocWidgetState<B extends BlocController> extends State<BlocWidget> {
+class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
 
   StreamSubscription _subscription;
   _BlocWidgetBlocState _builderState;
@@ -200,21 +199,23 @@ class BlocStateWidget<B extends BlocController, S extends BlocState> extends Sta
   }) : assert(controller != null),
        assert(controller is BlocControllerWithState),
        assert(builder != null),
-       super(key: key);
+       super(key: key) {
+    print(builder.runtimeType);
+  }
 
-  // BlocStateWidget.inherited({
-  //   Key key,
-  //   @required BuildContext context,
-  //   @required Widget Function(BuildContext, B, S) builder,
-  //   Function(BuildContext, Error, StackTrace) builderOnError,
-  //   Widget Function(BuildContext) builderOnClose,
-  // }) : this(
-  //     key: key,
-  //     controller: InheritedBloc.of<B>(context),
-  //     builder: builder,
-  //     builderOnError: builderOnError,
-  //     builderOnClose: builderOnClose,
-  //   );
+  BlocStateWidget.inherited({
+    Key key,
+    @required BuildContext context,
+    @required Widget Function(BuildContext, B, S) builder,
+    Function(BuildContext, Error, StackTrace) builderOnError,
+    Widget Function(BuildContext) builderOnClose,
+  }) : this(
+      key: key,
+      controller: InheritedBloc.of<B>(context),
+      builder: builder,
+      builderOnError: builderOnError,
+      builderOnClose: builderOnClose,
+    );
 
   final B controller;
   final BlocStateBuilder<B, S> builder;
@@ -226,7 +227,7 @@ class BlocStateWidget<B extends BlocController, S extends BlocState> extends Sta
 
 }
 
-class _BlocStateWidgetState<B extends BlocController, S extends BlocState> extends State<BlocStateWidget> {
+class _BlocStateWidgetState<B extends BlocController, S extends BlocState> extends State<BlocStateWidget<B, S>> {
 
   StreamSubscription _subscription;
   _BlocWidgetBlocState _builderState;
@@ -298,8 +299,9 @@ class _BlocStateWidgetState<B extends BlocController, S extends BlocState> exten
     if (_builderState == _BlocWidgetBlocState.error && widget.builderOnError != null) {
       return widget.builderOnError(cxt, _error, _stackTrace);
     }
-    
-    return widget.builder(cxt, widget.controller, (widget.controller as BlocControllerWithState).state);
+
+    final state = (widget.controller as BlocControllerWithState).state;
+    return widget.builder(cxt, widget.controller, state);
   }
 
 }
