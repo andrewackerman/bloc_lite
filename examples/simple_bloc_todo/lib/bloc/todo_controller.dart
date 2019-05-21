@@ -3,9 +3,33 @@ import 'package:simple_bloc_todo/model/enums.dart';
 import 'package:simple_bloc_todo/model/todo.dart';
 
 class TodoController extends BlocController with BlocControllerWithState<TodoState> {
+
+  TodoController() : super();
+  TodoController.withState(TodoState state) : super.withState(state);
   
   @override
   TodoState get initialState => TodoState();
+
+  void addTodo(Todo todo) {
+    state.mutate(() {
+      state.todos.add(todo);
+    });
+  }
+
+  void removeTodo(Todo todo) {
+    state.mutate(() {
+      state.todos.remove(todo);
+    });
+  }
+
+  void updateTodo(Todo todo, {String task, String note, bool complete}) {
+    state.mutate(() {
+      final idx = state.todos.indexOf(todo);
+      state.todos[idx].task = task ?? todo.task;
+      state.todos[idx].note = note ?? todo.note;
+      state.todos[idx].complete = complete ?? todo.complete;
+    });
+  }
 
   void clearCompleted() {
     state.mutate(() {
