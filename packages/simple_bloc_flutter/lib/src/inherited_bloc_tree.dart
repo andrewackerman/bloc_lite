@@ -20,7 +20,7 @@ class InheritedBlocTree extends StatelessWidget {
   Widget build(BuildContext cxt) {
     Widget child = this.child;
 
-    for (var bloc in blocProviders) {
+    for (var bloc in blocProviders.reversed) {
       child = bloc.withChild(child);
     }
 

@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "simple_flutter_counter",
             "type": "dart",
@@ -27,6 +28,12 @@
             "type": "dart",
             "request": "launch",
             "program": "examples/simple_bloc_todo/lib/main.dart"
+        },
+        {
+            "name": "simple_bloc_counter_with_tree",
+            "type": "dart",
+            "request": "launch",
+            "program": "examples/simple_bloc_counter_with_tree/lib/main.dart"
         }
     ]
 }

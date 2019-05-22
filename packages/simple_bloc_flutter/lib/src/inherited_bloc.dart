@@ -7,11 +7,10 @@ class InheritedBloc<B extends BlocController> extends InheritedWidget {
 
   InheritedBloc({
     Key key,
-    @required this.child,
+    this.child,
     @required this.bloc,
   })
-    : assert(child != null),
-      assert(bloc != null),
+    : assert(bloc != null),
       super(key: key);
 
   final Widget child;
@@ -23,8 +22,32 @@ class InheritedBloc<B extends BlocController> extends InheritedWidget {
     return provider?.bloc;
   }
 
+  static Iterable all(BuildContext context) sync* {
+    final blocs = <BlocController>[];
+    context.visitAncestorElements((elem) {
+      if (elem.widget is InheritedBloc) {
+        blocs.add((elem.widget as InheritedBloc).bloc);
+      }
+      return true;
+    });
+
+    yield* blocs;
+  }
+
+  static Iterable allOfType<B extends BlocController>(BuildContext context) sync* {
+    final blocs = <B>[];
+    context.visitAncestorElements((elem) {
+      if (elem.widget is InheritedBloc<B>) {
+        blocs.add((elem.widget as InheritedBloc<B>).bloc);
+      }
+      return true;
+    });
+
+    yield* blocs;
+  }
+
   InheritedBloc<B> withChild(Widget child) {
-    return InheritedBloc(key: this.key, bloc: this.bloc, child: child);
+    return InheritedBloc<B>(key: this.key, bloc: this.bloc, child: child);
   }
 
   @override
