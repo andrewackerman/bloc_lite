@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:simple_bloc/simple_bloc.dart';
 
-import 'bloc_flutter.dart';
+import 'typedefs.dart';
 import 'inherited_bloc.dart';
 
-class BlocStateWidget<B extends BlocController, S extends BlocState> extends StatefulWidget {
+/// A builder [Widget] that subscribes to a [BlocStateController] and
+/// automatically refreshes whenever updates to the controller are published or
+/// whenever the controller's [BlocState] reports that it has mutated.
+class BlocStateWidget<B extends BlocStateController, S extends BlocState> extends StatefulWidget {
 
   BlocStateWidget({
     Key key,
@@ -15,16 +18,18 @@ class BlocStateWidget<B extends BlocController, S extends BlocState> extends Sta
     this.builderOnError,
     this.builderOnClose,
   }) : assert(controller != null),
-       assert(controller is BlocControllerWithState),
        assert(builder != null),
        super(key: key);
 
+  /// A factory constructor that subscribes to a [BlocStateController] of the
+  /// specified type that has been injected into the widget tree as an
+  /// ancestor to this widget.
   BlocStateWidget.inherited({
     Key key,
     @required BuildContext context,
-    @required Widget Function(BuildContext, B, S) builder,
-    Function(BuildContext, Error, StackTrace) builderOnError,
-    Widget Function(BuildContext) builderOnClose,
+    @required BlocStateBuilder<B, S> builder,
+    BlocBuilderOnError<B> builderOnError,
+    BlocBuilderOnClose<B> builderOnClose,
   }) : this(
       key: key,
       controller: InheritedBloc.of<B>(context),
@@ -33,17 +38,34 @@ class BlocStateWidget<B extends BlocController, S extends BlocState> extends Sta
       builderOnClose: builderOnClose,
     );
 
+  /// The [BlocStateController] that this widget subscribes to.
   final B controller;
+
+  /// The builder function for this widget. The function is passed a reference
+  /// to the controller and a reference to the state object as arguments and is
+  /// fired once when the widget is first built and then again when the
+  /// controller publishes an update or the state reports a mutation.
   final BlocStateBuilder<B, S> builder;
-  final BlocBuilderOnError builderOnError;
-  final BlocBuilderOnClose builderOnClose;
+
+  /// An optional builder function that fires when the controller reports an
+  /// error. The controller as well as the error and stacktrace are passed to
+  /// the function as arguments.
+  ///
+  /// (If this function is null, the widget will instead print a debug message
+  /// containing the error message and stacktrace.)
+  final BlocBuilderOnError<B> builderOnError;
+
+  /// An optional builder function that fires when the controller reports that
+  /// its underlying stream has closed. The controller is passed to the
+  /// function as arguments.
+  final BlocBuilderOnClose<B> builderOnClose;
 
   @override
   _BlocStateWidgetState<B, S> createState() => _BlocStateWidgetState<B, S>();
 
 }
 
-class _BlocStateWidgetState<B extends BlocController, S extends BlocState> extends State<BlocStateWidget<B, S>> {
+class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState> extends State<BlocStateWidget<B, S>> {
 
   StreamSubscription _subscription;
   BlocWidgetBlocState _builderState;
@@ -109,15 +131,14 @@ class _BlocStateWidgetState<B extends BlocController, S extends BlocState> exten
   @override
   Widget build(BuildContext cxt) {
     if (_builderState == BlocWidgetBlocState.done && widget.builderOnClose != null) {
-      return widget.builderOnClose(cxt);
+      return widget.builderOnClose(cxt, widget.controller);
     }
 
     if (_builderState == BlocWidgetBlocState.error && widget.builderOnError != null) {
-      return widget.builderOnError(cxt, _error, _stackTrace);
+      return widget.builderOnError(cxt, widget.controller, _error, _stackTrace);
     }
 
-    final state = (widget.controller as BlocControllerWithState).state;
-    return widget.builder(cxt, widget.controller, state);
+    return widget.builder(cxt, widget.controller, widget.controller.state);
   }
 
 }

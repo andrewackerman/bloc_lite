@@ -55,7 +55,6 @@
     <ol>
       <li class="section-title"><a href="simple_bloc/BlocController-class.html#constructors">Constructors</a></li>
       <li><a href="simple_bloc/BlocController/BlocController.html">BlocController</a></li>
-      <li><a href="simple_bloc/BlocController/BlocController.withState.html">withState</a></li>
     
       <li class="section-title">
         <a href="simple_bloc/BlocController-class.html#instance-properties">Properties</a>
@@ -94,7 +93,8 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">BlocController() : this.withState(null);</code></pre>
+      <pre class="language-dart"><code class="language-dart">BlocController()
+  : _subject = PublishSubject&lt;BlocController&gt;();</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

@@ -20,7 +20,7 @@ class ToDoAppState extends State<ToDoApp> {
 
   @override
   void initState() {
-    todoController = TodoController.withState(MockTodo.data);
+    todoController = TodoController(MockTodo.data);
     super.initState();
   }
 

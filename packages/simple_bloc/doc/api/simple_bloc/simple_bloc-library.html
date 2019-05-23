@@ -71,13 +71,6 @@ stream that can be subscribed to for updates. Also exposes a <code>StreamSink</c
 a <code>Observable</code> for more control over the output. Updates are typically triggered 
 by calling the <code>publishUpdate</code> method.
         </dd>
-        <dt id="BlocControllerWithState">
-          <span class="name "><a href="simple_bloc/BlocControllerWithState-class.html">BlocControllerWithState</a><span class="signature">&lt;<wbr><span class="type-parameter">S extends <a href="simple_bloc/BlocState-class.html">BlocState</a></span>&gt;</span></span>         
-        </dt>
-        <dd>
-          An interface that equips a <code>BlocController</code> with a built-in state.
-This state must be a class that inherits from <code>BlocState</code>.
-        </dd>
         <dt id="BlocState">
           <span class="name "><a href="simple_bloc/BlocState-class.html">BlocState</a></span>         
         </dt>
@@ -86,6 +79,13 @@ This state must be a class that inherits from <code>BlocState</code>.
 stream that can be subscribed to for updates. Also exposes a <code>StreamSink</code> and 
 an <code>Observable</code> for more control over the output. Updates are typically 
 triggered by calling the <code>publishUpdate</code> method.
+        </dd>
+        <dt id="BlocStateController">
+          <span class="name "><a href="simple_bloc/BlocStateController-class.html">BlocStateController</a><span class="signature">&lt;<wbr><span class="type-parameter">S extends <a href="simple_bloc/BlocState-class.html">BlocState</a></span>&gt;</span></span>         
+        </dt>
+        <dd>
+          An interface that equips a <code>BlocController</code> with a built-in state.
+This state must be a class that inherits from <code>BlocState</code>.
         </dd>
       </dl>
     </section>
@@ -104,8 +104,8 @@ triggered by calling the <code>publishUpdate</code> method.
     <ol>
       <li class="section-title"><a href="simple_bloc/simple_bloc-library.html#classes">Classes</a></li>
       <li><a href="simple_bloc/BlocController-class.html">BlocController</a></li>
-      <li><a href="simple_bloc/BlocControllerWithState-class.html">BlocControllerWithState</a></li>
       <li><a href="simple_bloc/BlocState-class.html">BlocState</a></li>
+      <li><a href="simple_bloc/BlocStateController-class.html">BlocStateController</a></li>
     
     
     

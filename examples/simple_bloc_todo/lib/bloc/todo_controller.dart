@@ -2,10 +2,9 @@ import 'package:simple_bloc/simple_bloc.dart';
 import 'package:simple_bloc_todo/model/enums.dart';
 import 'package:simple_bloc_todo/model/todo.dart';
 
-class TodoController extends BlocController with BlocControllerWithState<TodoState> {
+class TodoController extends BlocStateController<TodoState> {
 
-  TodoController() : super();
-  TodoController.withState(TodoState state) : super.withState(state);
+  TodoController([TodoState state]) : super.withState(state);
   
   @override
   TodoState get initialState => TodoState();
