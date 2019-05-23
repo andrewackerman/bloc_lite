@@ -1,0 +1,21 @@
+name: bloc_lite_todo
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bloc_lite_flutter:
+    path: ../../packages/bloc_lite_flutter
+  uuid: 2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_bloc/simple_bloc.dart';
-import 'package:simple_bloc_flutter/simple_bloc_flutter.dart';
+import 'package:bloc_lite/bloc_lite.dart';
+import 'package:bloc_lite_flutter/bloc_lite_flutter.dart';
 
 void main() => runApp(MyApp());
 

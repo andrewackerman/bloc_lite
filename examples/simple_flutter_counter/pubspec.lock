@@ -8,6 +8,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  bloc_lite:
+    dependency: transitive
+    description:
+      path: "..\\..\\packages\\bloc_lite"
+      relative: true
+    source: path
+    version: "0.1.0"
+  bloc_lite_flutter:
+    dependency: "direct main"
+    description:
+      path: "..\\..\\packages\\bloc_lite_flutter"
+      relative: true
+    source: path
+    version: "0.1.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -81,20 +95,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.22.0"
-  simple_bloc:
-    dependency: transitive
-    description:
-      path: "..\\..\\packages\\simple_bloc"
-      relative: true
-    source: path
-    version: "0.0.1"
-  simple_bloc_flutter:
-    dependency: "direct main"
-    description:
-      path: "..\\..\\packages\\simple_bloc_flutter"
-      relative: true
-    source: path
-    version: "0.0.1"
   sky_engine:
     dependency: transitive
     description: flutter

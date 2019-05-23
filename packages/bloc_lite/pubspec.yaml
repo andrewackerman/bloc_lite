@@ -1,0 +1,14 @@
+name: bloc_lite
+description: A simplified library for creating stream-based bloc view models that adhere to the BLoC paradigm.
+version: 0.1.0
+author: andrew.ackerman <andrew.ackie@gmail.com>
+homepage: https://github.com/andrewackerman/bloc_lite
+repository: https://github.com/andrewackerman/bloc_lite
+issue_tracker: https://github.com/andrewackerman/bloc_lite/issues
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  meta: ^1.1.6
+  rxdart: ^0.22.0

@@ -8,8 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  simple_bloc_flutter:
-    path: ../../packages/simple_bloc_flutter
+  bloc_lite_flutter:
+    path: ../../packages/bloc_lite_flutter
 
 dev_dependencies:
   flutter_test:
