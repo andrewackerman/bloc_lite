@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/andrewackerman/bloc_lite/master/docs/assets/logo.png" height="60" alt="Simple Bloc" />
+# Bloc Lite
 
 ---
 
