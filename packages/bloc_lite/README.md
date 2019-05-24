@@ -15,8 +15,8 @@ BLoC is a development pattern designed and pioneered by Google, and it stands fo
 What BLoC is and does:
 
  - Separates Presentation Layer code from Business Logic code.
- - Exclusively uses [Streams]() for communication to and from a BLoC object.
- - Enables well-organized and reactive programming and app development.
+ - Exclusively uses [Streams](https://dart.dev/tutorials/language/streams) for communication to and from a BLoC object.
+ - Enables reactive and testable programming and app development.
  - Is platform and environment-agnostic.
 
 What BLoC is not and does not:
@@ -26,12 +26,12 @@ What BLoC is not and does not:
  - Impose opinionated restrictions on how the state is represented or managed.
  - Is not a drop-in state-management solution.
 
-Complete adherance to the BLoC pattern is not always desirable for every project. Depending on the scope and complexity of your project, consider a hybrid solution that incorporates only the parts of BLoC or consider if simple Dependency Injection is enough for your needs.
+Complete adherance to the BLoC pattern is not always desirable for every project. Depending on the scope and complexity of your project, you may consider a hybrid solution that incorporates only the parts of BLoC or consider if simple Dependency Injection is enough for your needs.
 
 ## Glossary
 
  - **BLoC** is the design pattern that this library is based on. (See BLoC Overview section above)
- - **bloc** is the shorthand name of a single BLoC object instance. They are self-contained packages of code that can be passed around like any other object.
+ - A **bloc** is a single BLoC object instance. They are self-sufficient containers of code that can be passed around like any other object.
  - **BlocController** is a bloc that is responsible for managing business logic. Update callbacks can be registered with the bloc to be notified of any changes; alternatively, it also exposes the *sink* and *stream* properties for finer control over the input and output, respectively. It is the base implementation of BLoC in this library.
  - **BlocStateController** is an extension of *BlocController* that includes additional utility for managing a *BlocState* object. The bloc automatically triggers an update whenever the state is mutated.
  - **BlocState** is a utility bloc that represents a mutable state. 
