@@ -117,8 +117,8 @@ class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState>
   }
 
   void _subscribe() {
-    _subscription = widget.controller
-        .subscribeToUpdates(_onData, onError: _onError, onDone: _onDone);
+    _subscription =
+        widget.controller.listen(_onData, onError: _onError, onDone: _onDone);
   }
 
   void _unsubscribe() {

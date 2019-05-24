@@ -43,8 +43,7 @@ abstract class BlocStateController<S extends BlocState> extends BlocController {
     _state = state;
     _state.controller = this;
 
-    _state.subscribeToMutations(onStateMutate,
-        onError: onStateError, onDone: onStateDone);
+    _state.listen(onStateMutate, onError: onStateError, onDone: onStateDone);
 
     this.publishUpdate();
   }

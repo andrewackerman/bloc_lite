@@ -17,7 +17,7 @@ abstract class BlocController {
 
   /// Registers the given callback methods with the underlying stream and returns
   /// the resulting `StreamSubscription`.
-  StreamSubscription subscribeToUpdates(void Function(BlocController) onUpdate,
+  StreamSubscription listen(void Function(BlocController) onUpdate,
       {void Function(Error, StackTrace) onError, void Function() onDone}) {
     return _subject.listen(onUpdate, onError: onError, onDone: onDone);
   }

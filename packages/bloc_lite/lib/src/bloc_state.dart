@@ -22,7 +22,7 @@ abstract class BlocState {
 
   /// Registers the given callback methods with the underlying stream and returns
   /// the resulting `StreamSubscription`.
-  StreamSubscription subscribeToMutations(void Function(BlocState) onMutate,
+  StreamSubscription listen(void Function(BlocState) onMutate,
       {void Function(Error, StackTrace) onError, void Function() onDone}) {
     return _subject.listen(onMutate, onError: onError, onDone: onDone);
   }

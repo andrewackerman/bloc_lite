@@ -120,8 +120,8 @@ class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
   }
 
   void _subscribe() {
-    _subscription = widget.controller
-        .subscribeToUpdates(_onData, onError: _onError, onDone: _onDone);
+    _subscription =
+        widget.controller.listen(_onData, onError: _onError, onDone: _onDone);
   }
 
   void _unsubscribe() {

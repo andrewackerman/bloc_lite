@@ -83,7 +83,7 @@ To listen to changes in the bloc, you can simply register a callback:
 ```dart
 void main() {
     final counterBloc = CounterBloc();
-    counterBloc.subscribeToUpdates(blocUpdated);
+    counterBloc.listen(blocUpdated);
 
     counterBloc.increment();
     counterBloc.increment();
@@ -134,7 +134,7 @@ Now instead of directly modifying the data in `value`, the controller creates mu
 ```dart
 void main() {
     final counterBloc = CounterBloc();
-    counterBloc.subscribeToUpdates(blocUpdated);
+    counterBloc.listen(blocUpdated);
 
     counterBloc.increment();
     counterBloc.increment();
@@ -178,7 +178,7 @@ class CounterBloc extends BlocStateController<CounterState> {
 ```dart
 void main() {
     final state = CounterState();
-    state.subscribeToMutations()
+    state.listen(stateMutated);
 
     final controller = CounterBloc(state);
     counterBloc.increment();
