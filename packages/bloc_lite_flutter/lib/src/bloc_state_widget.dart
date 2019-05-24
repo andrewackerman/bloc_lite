@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:bloc_lite/bloc_lite.dart';
 
+import 'enums.dart';
 import 'typedefs.dart';
 import 'inherited_bloc.dart';
 

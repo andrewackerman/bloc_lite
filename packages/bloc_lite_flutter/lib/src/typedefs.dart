@@ -9,9 +9,3 @@ typedef BlocBuilderOnError<B extends BlocController> = Widget Function(
     BuildContext context, B controller, Object error, StackTrace stackTrace);
 typedef BlocBuilderOnClose<B extends BlocController> = Widget Function(
     BuildContext context, B controller);
-
-enum BlocWidgetBlocState {
-  normal,
-  error,
-  done,
-}

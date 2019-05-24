@@ -72,11 +72,15 @@ void main() {
     counterBloc.decrement();
 
     print(counterBloc.value);
+
+    counterBloc.dispose();
 }
 
 // Output: 
 // 1
 ```
+
+(Note the call to `dispose`. This is important as the controller must be disposed in order to close the underlying stream and free up its resources.)
 
 To listen to changes in the bloc, you can simply register a callback:
 
@@ -88,6 +92,8 @@ void main() {
     counterBloc.increment();
     counterBloc.increment();
     counterBloc.decrement();
+
+    counterBloc.dispose();
 }
 
 void blocUpdated(CounterBloc bloc) {
@@ -139,6 +145,8 @@ void main() {
     counterBloc.increment();
     counterBloc.increment();
     counterBloc.decrement();
+
+    counterBloc.dispose();
 }
 
 void blocUpdated(CounterBloc bloc) {
@@ -184,6 +192,8 @@ void main() {
     counterBloc.increment();
     counterBloc.increment();
     counterBloc.decrement();
+
+    counterBloc.dispose();
 }
 
 void stateMutated(CounterState state) {

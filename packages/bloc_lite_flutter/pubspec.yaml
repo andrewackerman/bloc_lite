@@ -1,6 +1,6 @@
 name: bloc_lite_flutter
 description: A simplified library for creating stream-based bloc view models that adhere to the BLoC paradigm. Includes Flutter widgets to integrate blocs into the Flutter ecosystem.
-version: 0.1.0
+version: 0.1.1
 author: andrew.ackerman <andrew.ackie@gmail.com>
 homepage: https://github.com/andrewackerman/bloc_lite
 repository: https://github.com/andrewackerman/bloc_lite
@@ -12,7 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc_lite: ^0.1.0
+  bloc_lite: ^0.1.2
 
 dev_dependencies:
   flutter_test:
