@@ -11,16 +11,16 @@ packages:
   bloc_lite:
     dependency: transitive
     description:
-      path: "..\\..\\packages\\bloc_lite"
-      relative: true
-    source: path
+      name: bloc_lite
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.1.0"
   bloc_lite_flutter:
     dependency: "direct main"
     description:
-      path: "..\\..\\packages\\bloc_lite_flutter"
-      relative: true
-    source: path
+      name: bloc_lite_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.1.0"
   boolean_selector:
     dependency: transitive
