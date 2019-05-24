@@ -4,21 +4,20 @@ import 'package:flutter/widgets.dart';
 import 'package:bloc_lite/bloc_lite.dart';
 
 import 'typedefs.dart';
-import 'inherited_bloc.dart'; 
+import 'inherited_bloc.dart';
 
 /// A builder [Widget] that subscribes to a [BlocController] and automatically
 /// refreshes whenever updates to the controller are published.
 class BlocWidget<B extends BlocController> extends StatefulWidget {
-
   BlocWidget({
     Key key,
     @required this.controller,
     @required this.builder,
     this.builderOnError,
     this.builderOnClose,
-  }) : assert(controller != null),
-       assert(builder != null),
-       super(key: key);
+  })  : assert(controller != null),
+        assert(builder != null),
+        super(key: key);
 
   /// A factory constructor that subscribes to a [BlocController] of the
   /// specified type that has been injected into the widget tree as an
@@ -65,11 +64,9 @@ class BlocWidget<B extends BlocController> extends StatefulWidget {
 
   @override
   _BlocWidgetState<B> createState() => _BlocWidgetState<B>();
-
 }
 
 class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
-
   StreamSubscription _subscription;
   BlocWidgetBlocState _builderState;
   Object _error;
@@ -90,7 +87,7 @@ class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
   @override
   void didUpdateWidget(BlocWidget<B> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    
+
     if (_subscription != null) {
       _unsubscribe();
     }
@@ -123,7 +120,8 @@ class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
   }
 
   void _subscribe() {
-    _subscription = widget.controller.subscribeToUpdates(_onData, onError: _onError, onDone: _onDone);
+    _subscription = widget.controller
+        .subscribeToUpdates(_onData, onError: _onError, onDone: _onDone);
   }
 
   void _unsubscribe() {
@@ -135,15 +133,16 @@ class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
 
   @override
   Widget build(BuildContext cxt) {
-    if (_builderState == BlocWidgetBlocState.done && widget.builderOnClose != null) {
+    if (_builderState == BlocWidgetBlocState.done &&
+        widget.builderOnClose != null) {
       return widget.builderOnClose(cxt, widget.controller);
     }
 
-    if (_builderState == BlocWidgetBlocState.error && widget.builderOnError != null) {
+    if (_builderState == BlocWidgetBlocState.error &&
+        widget.builderOnError != null) {
       return widget.builderOnError(cxt, widget.controller, _error, _stackTrace);
     }
-    
+
     return widget.builder(cxt, widget.controller);
   }
-
 }

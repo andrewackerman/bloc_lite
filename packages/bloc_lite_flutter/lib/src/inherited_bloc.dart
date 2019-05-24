@@ -7,14 +7,12 @@ Type _typeOf<T>() => T;
 /// The bloc can then be retrieved as a dependency injection by multiple widget
 /// descendants within the child widget subtree.
 class InheritedBloc<B extends BlocController> extends InheritedWidget {
-
   InheritedBloc({
     Key key,
     this.child,
     @required this.bloc,
-  })
-    : assert(bloc != null),
-      super(key: key);
+  })  : assert(bloc != null),
+        super(key: key);
 
   /// The [Widget] and its descendants will be able to access the
   /// [BlocController] via the associated [BuildContext] object.
@@ -29,7 +27,9 @@ class InheritedBloc<B extends BlocController> extends InheritedWidget {
   /// This method runs in O(1) time.
   static B of<B extends BlocController>(BuildContext context) {
     final type = _typeOf<InheritedBloc<B>>();
-    final provider = context.ancestorInheritedElementForWidgetOfExactType(type)?.widget as InheritedBloc<B>;
+    final provider = context
+        .ancestorInheritedElementForWidgetOfExactType(type)
+        ?.widget as InheritedBloc<B>;
     return provider?.bloc;
   }
 
@@ -40,7 +40,8 @@ class InheritedBloc<B extends BlocController> extends InheritedWidget {
   /// This method runs in O(N) time, which can be slow for large widget trees.
   /// Avoid using frequently if possible. If all you need is a single ancestor
   /// of the given type, use [of].
-  static Iterable allOfType<B extends BlocController>(BuildContext context) sync* {
+  static Iterable allOfType<B extends BlocController>(
+      BuildContext context) sync* {
     final blocs = <B>[];
     context.visitAncestorElements((elem) {
       if (elem.widget is InheritedBloc<B>) {
@@ -80,5 +81,4 @@ class InheritedBloc<B extends BlocController> extends InheritedWidget {
 
   @override
   bool updateShouldNotify(InheritedBloc oldWidget) => false;
-
 }

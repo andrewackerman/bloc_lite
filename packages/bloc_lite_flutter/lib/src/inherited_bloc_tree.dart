@@ -6,15 +6,13 @@ import 'inherited_bloc.dart';
 /// tree. The blocs can then be retrieved as dependency injections by multiple
 /// widget descendants within the child widget subtree.
 class InheritedBlocTree extends StatelessWidget {
-
   InheritedBlocTree({
     Key key,
     @required this.child,
     @required this.blocProviders,
-  }) 
-    : assert(child != null),
-      assert(blocProviders != null),
-      super(key: key);
+  })  : assert(child != null),
+        assert(blocProviders != null),
+        super(key: key);
 
   /// The [Widget] and its descendants will be able to access the
   /// [BlocController] via the associated [BuildContext] object.
@@ -34,5 +32,4 @@ class InheritedBlocTree extends StatelessWidget {
 
     return child;
   }
-
 }

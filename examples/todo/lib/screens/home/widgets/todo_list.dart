@@ -7,7 +7,6 @@ import '../../../utility.dart';
 import '../home_screen_controller.dart';
 
 class TodoList extends StatelessWidget {
-
   TodoList({
     this.onTodoItemTapped,
     this.onTodoItemDismissed,
@@ -22,37 +21,36 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext cxt) {
     return BlocWidget<HomeScreenController>.inherited(
       context: cxt,
-      builder: (cxt, homeBloc) => BlocStateWidget<TodoController, TodoState>.inherited(
-        context: cxt,
-        builder: (cxt, todoBloc, todoState) {
-          final filteredTodos = todoState.filterTodos(homeBloc.activeFilter);
-          return Container(
-            child: homeBloc.isLoading
-              ? Center(
-              child: CircularProgressIndicator()
-            )
-              : ListView.builder(
-              itemCount: filteredTodos.length,
-              itemBuilder: (listCxt, idx) {
-                final todo = filteredTodos[idx];
-                return TodoListItem(
-                  todo: todo,
-                  onTodoItemTapped: onTodoItemTapped,
-                  onTodoItemDismissed: onTodoItemDismissed,
-                  onTodoItemCheckboxChanged: onTodoItemCheckboxChanged,
-                );
-              },
-            ),
-          );
-        },
-      ),
+      builder: (cxt, homeBloc) =>
+          BlocStateWidget<TodoController, TodoState>.inherited(
+            context: cxt,
+            builder: (cxt, todoBloc, todoState) {
+              final filteredTodos =
+                  todoState.filterTodos(homeBloc.activeFilter);
+              return Container(
+                child: homeBloc.isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: filteredTodos.length,
+                        itemBuilder: (listCxt, idx) {
+                          final todo = filteredTodos[idx];
+                          return TodoListItem(
+                            todo: todo,
+                            onTodoItemTapped: onTodoItemTapped,
+                            onTodoItemDismissed: onTodoItemDismissed,
+                            onTodoItemCheckboxChanged:
+                                onTodoItemCheckboxChanged,
+                          );
+                        },
+                      ),
+              );
+            },
+          ),
     );
   }
-
 }
 
 class TodoListItem extends StatelessWidget {
-
   final Todo todo;
   final void Function(Todo) onTodoItemTapped;
   final void Function(Todo) onTodoItemDismissed;
@@ -90,5 +88,4 @@ class TodoListItem extends StatelessWidget {
     );
     // return Text(todo.task);
   }
-
 }

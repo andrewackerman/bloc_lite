@@ -1,7 +1,6 @@
 import 'package:uuid/uuid.dart';
 
 class Todo {
-  
   bool complete;
   String id;
   String note;
@@ -28,5 +27,4 @@ class Todo {
   String toString() {
     return 'Todo{complete: $complete, task: $task, note: $note, id: $id}';
   }
-
 }

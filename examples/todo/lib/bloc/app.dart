@@ -1,5 +1,3 @@
 import 'package:bloc_lite/bloc_lite.dart';
 
-class AppController extends BlocController {
-
-}
+class AppController extends BlocController {}

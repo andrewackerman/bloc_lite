@@ -8,7 +8,6 @@ import 'package:bloc_lite_todo/screens/home/widgets/detail_screen.dart';
 import 'home_screen.dart';
 
 class HomeScreenController extends BlocController {
-
   HomeScreenController(this.widgetState) : super();
 
   HomeScreenState widgetState;
@@ -16,7 +15,8 @@ class HomeScreenController extends BlocController {
   bool isLoading = false;
   AppTab activeTab = AppTab.todos;
 
-  void updateVisibility(TodoController todoController, VisibilityFilter newFilter) {
+  void updateVisibility(
+      TodoController todoController, VisibilityFilter newFilter) {
     final oldFilter = activeFilter;
     activeFilter = newFilter;
 
@@ -40,7 +40,8 @@ class HomeScreenController extends BlocController {
     );
   }
 
-  void onTodoItemCheckboxChanged(TodoController todoController, Todo item, bool value) {
+  void onTodoItemCheckboxChanged(
+      TodoController todoController, Todo item, bool value) {
     todoController.updateTodo(item, complete: value);
   }
 
@@ -49,18 +50,17 @@ class HomeScreenController extends BlocController {
 
     Scaffold.of(widgetState.context).showSnackBar(
       SnackBar(
-        duration: Duration(seconds: 2),
-        backgroundColor: Theme.of(widgetState.context).backgroundColor,
-        content: Text(
-          item.task,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
-        action: SnackBarAction(
-          label: 'Undo',
-          onPressed: () => todoController.addTodo(item),
-        )
-      ),
+          duration: Duration(seconds: 2),
+          backgroundColor: Theme.of(widgetState.context).backgroundColor,
+          content: Text(
+            item.task,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () => todoController.addTodo(item),
+          )),
     );
   }
 
@@ -72,5 +72,4 @@ class HomeScreenController extends BlocController {
       publishUpdate();
     }
   }
-
 }

@@ -5,14 +5,11 @@ import 'package:bloc_lite_flutter/bloc_lite_flutter.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
   State createState() => MyAppState();
-
 }
 
 class MyAppState extends State<MyApp> {
-
   final blocA = CounterBlocControllerA();
   final blocB = CounterBlocControllerB();
 
@@ -47,85 +44,81 @@ class MyAppState extends State<MyApp> {
       ),
     );
   }
-
 }
 
 class SimpleCounterPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext cxt) {
     final blocA = InheritedBloc.of<CounterBlocControllerA>(cxt);
     final blocB = InheritedBloc.of<CounterBlocControllerB>(cxt);
-    
+
     return Container(
       padding: EdgeInsets.all(8),
       child: BlocWidget(
-        controller: blocA, 
+        controller: blocA,
         builder: (_, __) => BlocWidget(
-          controller: blocB,
-          builder: (_, __) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  '${blocA.value} + ${blocB.value} = ${blocA.value + blocB.value}',
-                  textAlign: TextAlign.center,
-                ),
-                Row(
+              controller: blocB,
+              builder: (_, __) {
+                return Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(
-                      children: [
-                        Text('Value 1'),
-                        SizedBox(height: 16),
-                        Text('${blocA.value}'),
-                        SizedBox(height: 16),
-                        FloatingActionButton(
-                          onPressed: blocA.decrementCounter,
-                          tooltip: 'Decrement',
-                          child: Icon(Icons.remove),
-                        ),
-                        SizedBox(height: 16),
-                        FloatingActionButton(
-                          onPressed: blocA.incrementCounter,
-                          tooltip: 'Increment',
-                          child: Icon(Icons.add),
-                        ),
-                      ],
+                    Text(
+                      '${blocA.value} + ${blocB.value} = ${blocA.value + blocB.value}',
+                      textAlign: TextAlign.center,
                     ),
-                    Column(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text('Value 2'),
-                        SizedBox(height: 16),
-                        Text('${blocB.value}'),
-                        SizedBox(height: 16),
-                        FloatingActionButton(
-                          onPressed: blocB.decrementCounter,
-                          tooltip: 'Decrement',
-                          child: Icon(Icons.remove),
+                        Column(
+                          children: [
+                            Text('Value 1'),
+                            SizedBox(height: 16),
+                            Text('${blocA.value}'),
+                            SizedBox(height: 16),
+                            FloatingActionButton(
+                              onPressed: blocA.decrementCounter,
+                              tooltip: 'Decrement',
+                              child: Icon(Icons.remove),
+                            ),
+                            SizedBox(height: 16),
+                            FloatingActionButton(
+                              onPressed: blocA.incrementCounter,
+                              tooltip: 'Increment',
+                              child: Icon(Icons.add),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 16),
-                        FloatingActionButton(
-                          onPressed: blocB.incrementCounter,
-                          tooltip: 'Increment',
-                          child: Icon(Icons.add),
+                        Column(
+                          children: [
+                            Text('Value 2'),
+                            SizedBox(height: 16),
+                            Text('${blocB.value}'),
+                            SizedBox(height: 16),
+                            FloatingActionButton(
+                              onPressed: blocB.decrementCounter,
+                              tooltip: 'Decrement',
+                              child: Icon(Icons.remove),
+                            ),
+                            SizedBox(height: 16),
+                            FloatingActionButton(
+                              onPressed: blocB.incrementCounter,
+                              tooltip: 'Increment',
+                              child: Icon(Icons.add),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
-                ),
-              ],
-            );
-          },
-        ),
+                );
+              },
+            ),
       ),
     );
   }
-
 }
 
 class CounterBlocControllerA extends BlocController {
-
   int value = 0;
 
   incrementCounter() {
@@ -137,11 +130,9 @@ class CounterBlocControllerA extends BlocController {
     value--;
     publishUpdate();
   }
-  
 }
 
 class CounterBlocControllerB extends BlocController {
-
   int value = 0;
 
   incrementCounter() {
@@ -153,5 +144,4 @@ class CounterBlocControllerB extends BlocController {
     value--;
     publishUpdate();
   }
-  
 }

@@ -6,26 +6,23 @@ import 'bloc_state.dart';
 /// An interface that equips a `BlocController` with a built-in state.
 /// This state must be a class that inherits from `BlocState`.
 abstract class BlocStateController<S extends BlocState> extends BlocController {
-
   /// Initializes the controller, using the [initialState] getter
   /// as the initial state.
   BlocStateController() : this.withState(null);
 
   /// Initializes the controller with a state. If the state argument is null,
   /// the value of [initialState] is used.
-  BlocStateController.withState(BlocState state)
-      : super() {
+  BlocStateController.withState(BlocState state) : super() {
     if (state != null) {
       registerState(state);
     } else if (initialState != null) {
       registerState(initialState);
     } else {
       throw StateError(
-        'A class that implements `BlocControllerWithState` must have ' +
-          'an initial state either by providing the `withState` constructor ' +
-          'with a state object or by overriding the `initialState` ' +
-          'getter property.'
-      );
+          'A class that implements `BlocControllerWithState` must have ' +
+              'an initial state either by providing the `withState` constructor ' +
+              'with a state object or by overriding the `initialState` ' +
+              'getter property.');
     }
   }
 
@@ -46,7 +43,8 @@ abstract class BlocStateController<S extends BlocState> extends BlocController {
     _state = state;
     _state.controller = this;
 
-    _state.subscribeToMutations(onStateMutate, onError: onStateError, onDone: onStateDone);
+    _state.subscribeToMutations(onStateMutate,
+        onError: onStateError, onDone: onStateDone);
 
     this.publishUpdate();
   }

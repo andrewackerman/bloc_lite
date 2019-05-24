@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:bloc_lite_todo/model/enums.dart';
 
 class FilterButton extends StatelessWidget {
-
   FilterButton({
     this.onSelected,
     this.activeFilter,
@@ -17,8 +16,8 @@ class FilterButton extends StatelessWidget {
   Widget build(BuildContext cxt) {
     final defaultStyle = Theme.of(cxt).textTheme.body1;
     final activeStyle = Theme.of(cxt).textTheme.body1.copyWith(
-      color: Theme.of(cxt).accentColor,
-    );
+          color: Theme.of(cxt).accentColor,
+        );
 
     final button = _Button(
       onSelected: onSelected,
@@ -33,11 +32,9 @@ class FilterButton extends StatelessWidget {
       child: isActive ? button : IgnorePointer(child: button),
     );
   }
-
 }
 
 class _Button extends StatelessWidget {
-
   _Button({
     this.onSelected,
     this.activeFilter,
@@ -57,35 +54,34 @@ class _Button extends StatelessWidget {
       onSelected: onSelected,
       icon: Icon(Icons.filter_list),
       itemBuilder: (BuildContext btnCxt) => [
-        PopupMenuItem(
-          value: VisibilityFilter.all,
-          child: Text(
-            'Show All',
-            style: activeFilter == VisibilityFilter.all
-              ? activeStyle
-              : defaultStyle,
-          ),
-        ),
-        PopupMenuItem(
-          value: VisibilityFilter.active,
-          child: Text(
-            'Show Active',
-            style: activeFilter == VisibilityFilter.active
-              ? activeStyle
-              : defaultStyle,
-          ),
-        ),
-        PopupMenuItem(
-          value: VisibilityFilter.completed,
-          child: Text(
-            'Show Completed',
-            style: activeFilter == VisibilityFilter.completed
-              ? activeStyle
-              : defaultStyle,
-          ),
-        ),
-      ],
+            PopupMenuItem(
+              value: VisibilityFilter.all,
+              child: Text(
+                'Show All',
+                style: activeFilter == VisibilityFilter.all
+                    ? activeStyle
+                    : defaultStyle,
+              ),
+            ),
+            PopupMenuItem(
+              value: VisibilityFilter.active,
+              child: Text(
+                'Show Active',
+                style: activeFilter == VisibilityFilter.active
+                    ? activeStyle
+                    : defaultStyle,
+              ),
+            ),
+            PopupMenuItem(
+              value: VisibilityFilter.completed,
+              child: Text(
+                'Show Completed',
+                style: activeFilter == VisibilityFilter.completed
+                    ? activeStyle
+                    : defaultStyle,
+              ),
+            ),
+          ],
     );
   }
-
 }

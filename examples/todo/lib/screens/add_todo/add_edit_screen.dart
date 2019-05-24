@@ -4,7 +4,6 @@ import 'package:bloc_lite_todo/model/todo.dart';
 import 'add_edit_screen_controller.dart';
 
 class AddEditScreen extends StatefulWidget {
-
   final Todo todo;
 
   AddEditScreen({
@@ -13,11 +12,9 @@ class AddEditScreen extends StatefulWidget {
 
   @override
   State createState() => AddEditScreenState();
-
 }
 
 class AddEditScreenState extends State<AddEditScreen> {
-
   AddEditScreenController controller;
 
   @override
@@ -57,14 +54,13 @@ class AddEditScreenState extends State<AddEditScreen> {
                 onSaved: controller.onTaskSaved,
               ),
               TextFormField(
-                initialValue: widget.todo == null ? '' : widget.todo.note,
-                maxLines: 10,
-                style: Theme.of(cxt).textTheme.subhead,
-                decoration: InputDecoration(
-                  hintText: 'Todo Note',
-                ),
-                onSaved: controller.onNoteSaved
-              )
+                  initialValue: widget.todo == null ? '' : widget.todo.note,
+                  maxLines: 10,
+                  style: Theme.of(cxt).textTheme.subhead,
+                  decoration: InputDecoration(
+                    hintText: 'Todo Note',
+                  ),
+                  onSaved: controller.onNoteSaved)
             ],
           ),
         ),
@@ -76,5 +72,4 @@ class AddEditScreenState extends State<AddEditScreen> {
       ),
     );
   }
-
 }

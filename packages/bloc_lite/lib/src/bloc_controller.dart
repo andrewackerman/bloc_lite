@@ -4,22 +4,21 @@ import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Provides a BLoC view controller interface to a class. Provides a `PublishSubject`
-/// stream that can be subscribed to for updates. Also exposes a `StreamSink` and 
-/// a `Observable` for more control over the output. Updates are typically triggered 
+/// stream that can be subscribed to for updates. Also exposes a `StreamSink` and
+/// a `Observable` for more control over the output. Updates are typically triggered
 /// by calling the `publishUpdate` method.
 abstract class BlocController {
-
-  BlocController()
-    : _subject = PublishSubject<BlocController>();
+  BlocController() : _subject = PublishSubject<BlocController>();
 
   final PublishSubject<BlocController> _subject;
 
   StreamSink<BlocController> get sink => _subject.sink;
   Observable<BlocController> get stream => _subject.stream;
 
-  /// Registers the given callback methods with the underlying stream and returns 
+  /// Registers the given callback methods with the underlying stream and returns
   /// the resulting `StreamSubscription`.
-  StreamSubscription subscribeToUpdates(void Function (BlocController) onUpdate, { void Function(Error, StackTrace) onError, void Function() onDone }) {
+  StreamSubscription subscribeToUpdates(void Function(BlocController) onUpdate,
+      {void Function(Error, StackTrace) onError, void Function() onDone}) {
     return _subject.listen(onUpdate, onError: onError, onDone: onDone);
   }
 
@@ -53,5 +52,4 @@ abstract class BlocController {
   /// Method that is called when [publishUpdate] is called, after the stream is notified. Does nothing by default.
   @protected
   void postUpdatePublished() => null;
-
 }

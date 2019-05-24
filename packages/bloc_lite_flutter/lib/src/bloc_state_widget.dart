@@ -9,17 +9,17 @@ import 'inherited_bloc.dart';
 /// A builder [Widget] that subscribes to a [BlocStateController] and
 /// automatically refreshes whenever updates to the controller are published or
 /// whenever the controller's [BlocState] reports that it has mutated.
-class BlocStateWidget<B extends BlocStateController, S extends BlocState> extends StatefulWidget {
-
+class BlocStateWidget<B extends BlocStateController, S extends BlocState>
+    extends StatefulWidget {
   BlocStateWidget({
     Key key,
     @required this.controller,
     @required this.builder,
     this.builderOnError,
     this.builderOnClose,
-  }) : assert(controller != null),
-       assert(builder != null),
-       super(key: key);
+  })  : assert(controller != null),
+        assert(builder != null),
+        super(key: key);
 
   /// A factory constructor that subscribes to a [BlocStateController] of the
   /// specified type that has been injected into the widget tree as an
@@ -31,12 +31,12 @@ class BlocStateWidget<B extends BlocStateController, S extends BlocState> extend
     BlocBuilderOnError<B> builderOnError,
     BlocBuilderOnClose<B> builderOnClose,
   }) : this(
-      key: key,
-      controller: InheritedBloc.of<B>(context),
-      builder: builder,
-      builderOnError: builderOnError,
-      builderOnClose: builderOnClose,
-    );
+          key: key,
+          controller: InheritedBloc.of<B>(context),
+          builder: builder,
+          builderOnError: builderOnError,
+          builderOnClose: builderOnClose,
+        );
 
   /// The [BlocStateController] that this widget subscribes to.
   final B controller;
@@ -62,11 +62,10 @@ class BlocStateWidget<B extends BlocStateController, S extends BlocState> extend
 
   @override
   _BlocStateWidgetState<B, S> createState() => _BlocStateWidgetState<B, S>();
-
 }
 
-class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState> extends State<BlocStateWidget<B, S>> {
-
+class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState>
+    extends State<BlocStateWidget<B, S>> {
   StreamSubscription _subscription;
   BlocWidgetBlocState _builderState;
   Object _error;
@@ -87,7 +86,7 @@ class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState> 
   @override
   void didUpdateWidget(BlocStateWidget<B, S> oldWidget) {
     super.didUpdateWidget(oldWidget);
-    
+
     if (_subscription != null) {
       _unsubscribe();
     }
@@ -118,7 +117,8 @@ class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState> 
   }
 
   void _subscribe() {
-    _subscription = widget.controller.subscribeToUpdates(_onData, onError: _onError, onDone: _onDone);
+    _subscription = widget.controller
+        .subscribeToUpdates(_onData, onError: _onError, onDone: _onDone);
   }
 
   void _unsubscribe() {
@@ -130,15 +130,16 @@ class _BlocStateWidgetState<B extends BlocStateController, S extends BlocState> 
 
   @override
   Widget build(BuildContext cxt) {
-    if (_builderState == BlocWidgetBlocState.done && widget.builderOnClose != null) {
+    if (_builderState == BlocWidgetBlocState.done &&
+        widget.builderOnClose != null) {
       return widget.builderOnClose(cxt, widget.controller);
     }
 
-    if (_builderState == BlocWidgetBlocState.error && widget.builderOnError != null) {
+    if (_builderState == BlocWidgetBlocState.error &&
+        widget.builderOnError != null) {
       return widget.builderOnError(cxt, widget.controller, _error, _stackTrace);
     }
 
     return widget.builder(cxt, widget.controller, widget.controller.state);
   }
-
 }

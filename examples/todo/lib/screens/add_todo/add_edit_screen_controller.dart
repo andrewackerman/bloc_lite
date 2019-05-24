@@ -7,7 +7,6 @@ import 'package:bloc_lite_todo/model/todo.dart';
 import 'add_edit_screen.dart';
 
 class AddEditScreenController extends BlocController {
-
   AddEditScreenController(this.widgetState) : super();
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -20,8 +19,7 @@ class AddEditScreenController extends BlocController {
   bool get isEditing => widgetState.widget.todo != null;
 
   String taskValidator(String value) {
-    if (value.trim().isEmpty)
-      return 'Todo task cannot be empty';
+    if (value.trim().isEmpty) return 'Todo task cannot be empty';
     return null;
   }
 
@@ -54,5 +52,4 @@ class AddEditScreenController extends BlocController {
       Navigator.pop(widgetState.context);
     }
   }
-
 }

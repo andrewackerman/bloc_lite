@@ -3,9 +3,8 @@ import 'package:bloc_lite_todo/model/enums.dart';
 import 'package:bloc_lite_todo/model/todo.dart';
 
 class TodoController extends BlocStateController<TodoState> {
-
   TodoController([TodoState state]) : super.withState(state);
-  
+
   @override
   TodoState get initialState => TodoState();
 
@@ -42,24 +41,22 @@ class TodoController extends BlocStateController<TodoState> {
       state.todos.forEach((todo) => todo.complete = !allCompleted);
     });
   }
-
 }
 
 class TodoState extends BlocState {
-
   bool isLoading = false;
   List<Todo> todos = [];
 
   bool get allComplete => todos.every((todo) => todo.complete);
   bool get hasCompletedTodos => todos.any((todo) => todo.complete);
-  int get numActive => todos.fold(0, (sum, todo) => !todo.complete ? ++sum : sum);
-  int get numCompleted => todos.fold(0, (sum, todo) => todo.complete ? ++sum : sum);
+  int get numActive =>
+      todos.fold(0, (sum, todo) => !todo.complete ? ++sum : sum);
+  int get numCompleted =>
+      todos.fold(0, (sum, todo) => todo.complete ? ++sum : sum);
 
-  List<Todo> filterTodos(VisibilityFilter filter) =>
-    todos.where((todo) {
-      if (filter == VisibilityFilter.all) return true;
-      if (filter == VisibilityFilter.active) return !todo.complete;
-      return todo.complete;
-    }).toList();
-
+  List<Todo> filterTodos(VisibilityFilter filter) => todos.where((todo) {
+        if (filter == VisibilityFilter.all) return true;
+        if (filter == VisibilityFilter.active) return !todo.complete;
+        return todo.complete;
+      }).toList();
 }

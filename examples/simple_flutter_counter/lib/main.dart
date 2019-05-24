@@ -25,14 +25,11 @@ class MyApp extends StatelessWidget {
 }
 
 class SimpleCounterPage extends StatefulWidget {
-
   @override
   State createState() => SimpleCounterPageState();
-
 }
 
 class SimpleCounterPageState extends State<SimpleCounterPage> {
-
   final CounterBlocController controller = CounterBlocController();
 
   @override
@@ -51,12 +48,14 @@ class SimpleCounterPageState extends State<SimpleCounterPage> {
           Text(
             'Current value of the counter bloc:',
           ),
-          BlocWidget(controller: controller, builder: (cxt, bloc) {
-            return Text(
-              '${bloc.counter}',
-              style: Theme.of(context).textTheme.display1,
-            );
-          }),
+          BlocWidget(
+              controller: controller,
+              builder: (cxt, bloc) {
+                return Text(
+                  '${bloc.counter}',
+                  style: Theme.of(context).textTheme.display1,
+                );
+              }),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -76,14 +75,12 @@ class SimpleCounterPageState extends State<SimpleCounterPage> {
       ),
     );
   }
-
 }
 
 class CounterBlocController extends BlocController {
-
   int counter;
 
-  CounterBlocController()  {
+  CounterBlocController() {
     counter = 0;
   }
 
@@ -96,5 +93,4 @@ class CounterBlocController extends BlocController {
     counter--;
     publishUpdate();
   }
-  
 }

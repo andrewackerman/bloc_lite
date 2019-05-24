@@ -8,14 +8,11 @@ import 'package:bloc_lite_todo/screens/home/home_screen.dart';
 import 'mock/todo_mock.dart' as MockTodo;
 
 class ToDoApp extends StatefulWidget {
-
   @override
   State createState() => ToDoAppState();
-
 }
 
 class ToDoAppState extends State<ToDoApp> {
-
   TodoController todoController;
 
   @override
@@ -44,5 +41,4 @@ class ToDoAppState extends State<ToDoApp> {
       ),
     );
   }
-
 }
