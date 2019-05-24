@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the postMutate method from the BlocState class, for the Dart programming language.">
-  <title>postMutate method - BlocState class - bloc_lite library - Dart API</title>
+  <meta name="description" content="API docs for the publishMutation method from the BlocState class, for the Dart programming language.">
+  <title>publishMutation method - BlocState class - bloc_lite library - Dart API</title>
   <!-- required because all the links are pseudo-absolute -->
   <base href="../..">
 
@@ -27,9 +27,9 @@
     <li><a href="index.html">bloc_lite</a></li>
     <li><a href="bloc_lite/bloc_lite-library.html">bloc_lite</a></li>
     <li><a href="bloc_lite/BlocState-class.html">BlocState</a></li>
-    <li class="self-crumb">postMutate method</li>
+    <li class="self-crumb">publishMutation method</li>
   </ol>
-  <div class="self-name">postMutate</div>
+  <div class="self-name">publishMutation</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -48,7 +48,7 @@
       <li><a href="index.html">bloc_lite</a></li>
       <li><a href="bloc_lite/bloc_lite-library.html">bloc_lite</a></li>
       <li><a href="bloc_lite/BlocState-class.html">BlocState</a></li>
-      <li class="self-crumb">postMutate method</li>
+      <li class="self-crumb">publishMutation method</li>
     </ol>
     
     <h5>BlocState class</h5>
@@ -85,7 +85,7 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
-      <div><h1><span class="kind-method">postMutate</span> method</h1></div>
+      <div><h1><span class="kind-method">publishMutation</span> method</h1></div>
 
     <section class="multi-line-signature">
       <div>
@@ -94,18 +94,28 @@
         </ol>
       </div>
       <span class="returntype">void</span>
-            <span class="name ">postMutate</span>
+            <span class="name ">publishMutation</span>
 (<wbr>)
       <div class="features">@protected</div>
     </section>
     <section class="desc markdown">
-      <p>Method that is called when <a href="bloc_lite/BlocState/publishMutation.html">publishMutation</a> is called, after the stream is notified. Does nothing by default.</p>
+      <p>Notify the underlying stream that the internal state has mutated.</p>
+<p>This method allows the state to manually trigger a mutation signal. However, it is recommended
+that mutations be performed within a call to <a href="bloc_lite/BlocState/mutate.html">mutate</a> instead.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">@protected
-void postMutate() =&gt; null;</code></pre>
+void publishMutation() {
+  try {
+    preMutate();
+    _subject.add(this);
+    postMutate();
+  } catch (e, st) {
+    this.onError(e, st);
+  }
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->

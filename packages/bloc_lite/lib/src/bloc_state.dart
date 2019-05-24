@@ -27,7 +27,7 @@ abstract class BlocState {
     return _subject.listen(onMutate, onError: onError, onDone: onDone);
   }
 
-  /// Notify the underlying state that the internal data has changed.
+  /// Executes the provided closure function, then notifies the state of a mutation.
   ///
   /// Whenever you mutate the state's data, do it within a function that you pass to `mutate`:
   ///
@@ -38,13 +38,25 @@ abstract class BlocState {
   /// The provided callback is immediately called synchronously. It must not
   /// return a future (the callback cannot be `async`), since then it would be
   /// unclear when the state was actually being set.
-  Future<void> mutate(void Function() mutation) async {
+  void mutate(void Function() mutation) {
+    dynamic result = mutation() as dynamic;
+    if (result is Future) {
+      print('[WARNING] The closure function passed to mutate was marked as asynchronous or ' +
+          'returned a Future. The state cannot guarantee that the mutation will have completed ' +
+          'before the state is accessed by stream subscribers.');
+    }
+    publishMutation();
+  }
+
+  /// Notify the underlying stream that the internal state has mutated.
+  ///
+  /// This method allows the state to manually trigger a mutation signal. However, it is recommended
+  /// that mutations be performed within a call to [mutate] instead.
+  @protected
+  void publishMutation() {
     try {
       preMutate();
-
-      mutation();
       _subject.add(this);
-
       postMutate();
     } catch (e, st) {
       this.onError(e, st);
@@ -61,11 +73,11 @@ abstract class BlocState {
   @protected
   void onError(Object error, StackTrace stackTrace) => print(error);
 
-  /// Method that is called when [mutate] is called but before the stream is notified. Does nothing by default.
+  /// Method that is called when [publishMutation] is called but before the stream is notified. Does nothing by default.
   @protected
   void preMutate() => null;
 
-  /// Method that is called when [mutate] is called, after the stream is notified. Does nothing by default.
+  /// Method that is called when [publishMutation] is called, after the stream is notified. Does nothing by default.
   @protected
   void postMutate() => null;
 }

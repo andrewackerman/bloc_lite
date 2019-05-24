@@ -104,19 +104,17 @@ the value of <a href="bloc_lite/BlocStateController/initialState.html">initialSt
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">BlocStateController.withState(BlocState state)
-    : super() {
+      <pre class="language-dart"><code class="language-dart">BlocStateController.withState(BlocState state) : super() {
   if (state != null) {
     registerState(state);
   } else if (initialState != null) {
     registerState(initialState);
   } else {
     throw StateError(
-      &#39;A class that implements `BlocControllerWithState` must have &#39; +
-        &#39;an initial state either by providing the `withState` constructor &#39; +
-        &#39;with a state object or by overriding the `initialState` &#39; +
-        &#39;getter property.&#39;
-    );
+        &#39;A class that implements `BlocControllerWithState` must have &#39; +
+            &#39;an initial state either by providing the `withState` constructor &#39; +
+            &#39;with a state object or by overriding the `initialState` &#39; +
+            &#39;getter property.&#39;);
   }
 }</code></pre>
     </section>
@@ -130,7 +128,7 @@ the value of <a href="bloc_lite/BlocStateController/initialState.html">initialSt
 
 <footer>
   <span class="no-break">
-    bloc_lite 0.1.0
+    bloc_lite 0.1.1
   </span>
 
   

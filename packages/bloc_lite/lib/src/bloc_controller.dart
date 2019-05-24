@@ -23,7 +23,7 @@ abstract class BlocController {
   }
 
   /// Notifies the underlying stream of an update. Passes a reference to this object to the stream.
-  Future<void> publishUpdate() async {
+  void publishUpdate() {
     if (_subject.isClosed) return;
 
     try {

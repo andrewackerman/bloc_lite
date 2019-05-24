@@ -71,6 +71,7 @@
       <li><a href="bloc_lite/BlocState/onError.html">onError</a></li>
       <li><a href="bloc_lite/BlocState/postMutate.html">postMutate</a></li>
       <li><a href="bloc_lite/BlocState/preMutate.html">preMutate</a></li>
+      <li><a href="bloc_lite/BlocState/publishMutation.html">publishMutation</a></li>
       <li><a href="bloc_lite/BlocState/subscribeToMutations.html">subscribeToMutations</a></li>
       <li class="inherited"><a href="bloc_lite/BlocState/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="bloc_lite/BlocState/toString.html">toString</a></li>
@@ -87,13 +88,13 @@
       <div><h1><span class="kind-method">mutate</span> method</h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype">Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+      <span class="returntype">void</span>
             <span class="name ">mutate</span>
 (<wbr><span class="parameter" id="mutate-param-mutation"><span class="type-annotation">void</span> <span class="parameter-name">mutation</span>()</span>)
       
     </section>
     <section class="desc markdown">
-      <p>Notify the underlying state that the internal data has changed.</p>
+      <p>Executes the provided closure function, then notifies the state of a mutation.</p>
 <p>Whenever you mutate the state's data, do it within a function that you pass to <code>mutate</code>:</p>
 <pre class="language-dart"><code class="language-dart">state.mutate(() { state.value = newValue });
 </code></pre>
@@ -104,17 +105,14 @@ unclear when the state was actually being set.</p>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; mutate(void Function() mutation) async {
-  try {
-    preMutate();
-
-    mutation();
-    _subject.add(this);
-
-    postMutate();
-  } catch(e, st) {
-    this.onError(e, st);
+      <pre class="language-dart"><code class="language-dart">void mutate(void Function() mutation) {
+  dynamic result = mutation() as dynamic;
+  if (result is Future) {
+    print(&#39;[WARNING] The closure function passed to mutate was marked as asynchronous or &#39; +
+        &#39;returned a Future. The state cannot guarantee that the mutation will have completed &#39; +
+        &#39;before the state is accessed by stream subscribers.&#39;);
   }
+  publishMutation();
 }</code></pre>
     </section>
 
@@ -127,7 +125,7 @@ unclear when the state was actually being set.</p>
 
 <footer>
   <span class="no-break">
-    bloc_lite 0.1.0
+    bloc_lite 0.1.1
   </span>
 
   

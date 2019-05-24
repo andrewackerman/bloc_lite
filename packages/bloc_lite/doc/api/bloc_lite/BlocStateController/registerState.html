@@ -112,7 +112,8 @@ listeners to be notified of updates to the state's stream.</p>
   _state = state;
   _state.controller = this;
 
-  _state.subscribeToMutations(onStateMutate, onError: onStateError, onDone: onStateDone);
+  _state.subscribeToMutations(onStateMutate,
+      onError: onStateError, onDone: onStateDone);
 
   this.publishUpdate();
 }</code></pre>
@@ -127,7 +128,7 @@ listeners to be notified of updates to the state's stream.</p>
 
 <footer>
   <span class="no-break">
-    bloc_lite 0.1.0
+    bloc_lite 0.1.1
   </span>
 
   

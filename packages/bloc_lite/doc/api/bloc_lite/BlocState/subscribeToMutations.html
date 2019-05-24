@@ -71,6 +71,7 @@
       <li><a href="bloc_lite/BlocState/onError.html">onError</a></li>
       <li><a href="bloc_lite/BlocState/postMutate.html">postMutate</a></li>
       <li><a href="bloc_lite/BlocState/preMutate.html">preMutate</a></li>
+      <li><a href="bloc_lite/BlocState/publishMutation.html">publishMutation</a></li>
       <li><a href="bloc_lite/BlocState/subscribeToMutations.html">subscribeToMutations</a></li>
       <li class="inherited"><a href="bloc_lite/BlocState/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="bloc_lite/BlocState/toString.html">toString</a></li>
@@ -93,13 +94,14 @@
       
     </section>
     <section class="desc markdown">
-      <p>Registers the given callback methods with the underlying stream and returns 
+      <p>Registers the given callback methods with the underlying stream and returns
 the resulting <code>StreamSubscription</code>.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">StreamSubscription subscribeToMutations(void Function (BlocState) onMutate, { void Function(Error, StackTrace) onError, void Function() onDone }) {
+      <pre class="language-dart"><code class="language-dart">StreamSubscription subscribeToMutations(void Function(BlocState) onMutate,
+    {void Function(Error, StackTrace) onError, void Function() onDone}) {
   return _subject.listen(onMutate, onError: onError, onDone: onDone);
 }</code></pre>
     </section>
@@ -113,7 +115,7 @@ the resulting <code>StreamSubscription</code>.</p>
 
 <footer>
   <span class="no-break">
-    bloc_lite 0.1.0
+    bloc_lite 0.1.1
   </span>
 
   
