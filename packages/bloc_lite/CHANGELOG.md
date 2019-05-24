@@ -1,3 +1,7 @@
+## [0.1.3]
+
+* Minor update to README
+
 ## [0.1.2]
 
 * Changed `subscribeToUpdates` in `BlocController` to `listen` for compactness and to more closely reflect naming conventions in other libraries.
