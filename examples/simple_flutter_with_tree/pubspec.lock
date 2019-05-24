@@ -14,14 +14,14 @@ packages:
       name: bloc_lite
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.3"
   bloc_lite_flutter:
     dependency: "direct main"
     description:
       name: bloc_lite_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   boolean_selector:
     dependency: transitive
     description:
