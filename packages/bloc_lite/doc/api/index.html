@@ -54,12 +54,71 @@
   <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
       <section class="desc markdown">
         <p><a href="https://pub.dartlang.org/packages/bloc_lite"><img src="https://img.shields.io/pub/v/bloc_lite.svg" alt="pub package"></a></p>
-<p>A library aimed at making it simple to use the BLoC design pattern to separate the presentation code from the business logic and the state.</p>
+<p>A library aimed at making it simple to use the BLoC design pattern to separate the presentation code from the business logic and the state. While this library aims to make it possible to make a project 100% compliant with the BLoC pattern, it also recognizes that 100% compliance is not always advisable or necessary so it also facilitates ease-of-use compromises that enable simple integration with projects of any scope.</p>
 <p>This is a general-purpose BLoC library. For platform-specific applications, see <a href="https://pub.dev/packages/bloc_lite_flutter">bloc_lite_flutter</a>.</p>
 <h2 id="api-reference">API Reference</h2><ul><li><a href="https://pub.dev/documentation/bloc_lite/latest/bloc_lite/bloc_lite-library.html">Dart Docs</a></li></ul>
+<h2 id="bloc-overview">BLoC Overview</h2>
+<p>BLoC is a development pattern designed and pioneered by Google, and it stands for <strong>B</strong>usiness <strong>Lo</strong>gic <strong>C</strong>omponent. (For a thorough explanation, see <a href="https://www.didierboelens.com/2018/08/reactive-programming---streams---bloc/">this article by Didier Boelens</a> or <a href="https://www.youtube.com/watch?v=PLHln7wHgPE">this video by Google at DartConf 2018</a>) </p>
+<p>What BLoC is and does:</p><ul><li>Separates Presentation Layer code from Business Logic code.</li><li>Exclusively uses <a href="https://dart.dev/tutorials/language/streams">Streams</a> for communication to and from a BLoC object.</li><li>Enables reactive and testable programming and app development.</li><li>Is platform and environment-agnostic.</li></ul>
+<p>What BLoC is not and does not:</p><ul><li>Make assumptions on how the Business Logic is structured or organized within a BLoC object.</li><li>Impose opinionated restrictions on how communication to and from BLoC objects are structured.</li><li>Impose opinionated restrictions on how the state is represented or managed.</li><li>Is not a drop-in state-management solution.</li></ul>
+<p>Complete adherance to the BLoC pattern is not always desirable for every project. Depending on the scope and complexity of your project, you may consider a hybrid solution that incorporates only the parts of BLoC or consider if simple Dependency Injection is enough for your needs.</p>
+<h2 id="glossary">Glossary</h2><ul><li><strong>BLoC</strong> is the design pattern that this library is based on. (See BLoC Overview section above)</li><li>A <strong>bloc</strong> is a single BLoC object instance. They are self-sufficient containers of code that can be passed around like any other object.</li><li><strong>BlocController</strong> is a bloc that is responsible for managing business logic. Update callbacks can be registered with the bloc to be notified of any changes; alternatively, it also exposes the <em>sink</em> and <em>stream</em> properties for finer control over the input and output, respectively. It is the base implementation of BLoC in this library.</li><li><strong>Stream</strong> is a programming construct that takes data from one or more sources and pushes it to one or more destinations. It is commonly treated as a watcher that notifies any listeners when new data has been made available.</li><li>A <strong>controller</strong> is an object that is responsible for executing code relevant to a particular purpose. For example, in a GUI application, the controller can be the business logic portion of code that is tailored for use to a particular widget.</li><li>A <strong>state</strong> is an object that maintains a fixed representation of data that other code can reference. The state can be <em>mutable</em>, meaning the data within can be freely modified (or "mutated"), or <em>immutable</em>, meaning the data cannot be modified.</li></ul>
 <h2 id="usage">Usage</h2>
-<p>WIP</p>
-<h2 id="todo">Todo</h2><ul><li>Add testing suite</li><li>CodeMagic integration for automated testing and deployment</li></ul>
+<p>For a simple counter bloc, we can create a <code>BlocController</code> class like so:</p>
+<pre class="language-dart"><code class="language-dart">class CounterBloc extends BlocController {
+    int value = 0;
+
+    void increment() {
+        value += 1;
+        publishUpdate();
+    }
+
+    void decrement() {
+        value -= 1;
+        publishUpdate();
+    }
+}
+</code></pre>
+<p>The bloc is capable of maintaining its own state. In the <code>increment</code> and <code>decrement</code> functions, the bloc updates its state accordingly, then notifies listeners that changes have been made by calling <code>publishUpdate</code>.</p>
+<p>The bloc can now be used elsewhere in the project:</p>
+<pre class="language-dart"><code class="language-dart">void main() {
+    final counterBloc = CounterBloc();
+
+    counterBloc.increment();
+    counterBloc.increment();
+    counterBloc.decrement();
+
+    print(counterBloc.value);
+
+    counterBloc.dispose();
+}
+
+// Output: 
+// 1
+</code></pre>
+<p>(Note the call to <code>dispose</code>. This is important as the controller must be disposed in order to close the underlying stream and free up its resources.)</p>
+<p>To listen to changes in the bloc, you can simply register a callback:</p>
+<pre class="language-dart"><code class="language-dart">void main() {
+    final counterBloc = CounterBloc();
+    counterBloc.listen(blocUpdated);
+
+    counterBloc.increment();
+    counterBloc.increment();
+    counterBloc.decrement();
+
+    counterBloc.dispose();
+}
+
+void blocUpdated(CounterBloc bloc) {
+    print(bloc.value);
+}
+
+// Output:
+// 1
+// 2
+// 1
+</code></pre>
+<h2 id="todo">Todo</h2><ul><li>Add examples of synchronizing a <em>BlocState</em> with a data store</li><li>Add examples of advanced sink/stream usage</li><li>Add support for immutable state</li><li>Add testing suite</li><li>Add CodeMagic integration for automated testing and deployment</li></ul>
       </section>
       
         <section class="summary">
@@ -82,7 +141,7 @@
 
 <footer>
   <span class="no-break">
-    bloc_lite 0.1.1
+    bloc_lite 0.1.3
   </span>
 
   

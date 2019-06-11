@@ -33,12 +33,12 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext cxt) {
     return InheritedBloc(
       bloc: controller,
-      child: BlocWidget(
+      child: BlocBuilder(
         controller: controller,
         builder: (_, __) =>
-            BlocStateWidget<TodoController, TodoState>.inherited(
+        BlocBuilder<TodoController>.inherited(
               context: cxt,
-              builder: (_, todoBloc, todoState) => Scaffold(
+              builder: (_, todoBloc) => Scaffold(
                     appBar: AppBar(
                       title: Text('Simple Bloc Example'),
                       actions: [
@@ -49,8 +49,8 @@ class HomeScreenState extends State<HomeScreen> {
                               controller.updateVisibility(todoBloc, visibility),
                         ),
                         ExtraActionsButton(
-                          allComplete: todoState.allComplete,
-                          hasCompletedTodos: todoState.hasCompletedTodos,
+                          allComplete: todoBloc.state.allComplete,
+                          hasCompletedTodos: todoBloc.state.hasCompletedTodos,
                           onSelected: (action) =>
                               controller.handleExtraAction(todoBloc, action),
                         ),

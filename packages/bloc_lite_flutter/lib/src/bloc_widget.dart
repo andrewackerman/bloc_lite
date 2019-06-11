@@ -1,149 +1,91 @@
-import 'dart:async';
-
-import 'package:flutter/widgets.dart';
 import 'package:bloc_lite/bloc_lite.dart';
+import 'package:flutter/widgets.dart';
 
-import 'enums.dart';
-import 'typedefs.dart';
-import 'inherited_bloc.dart';
+import 'bloc_builder.dart';
 
-/// A builder [Widget] that subscribes to a [BlocController] and automatically
-/// refreshes whenever updates to the controller are published.
-class BlocWidget<B extends BlocController> extends StatefulWidget {
+/// A class that abstracts the lifetime management and update rebuilding of a
+/// [BlocController]. This class extends [StatefulWidget] in order to dispose
+/// the controller automatically in the event that this widget gets removed
+/// from the widget tree.
+abstract class BlocWidget<B extends BlocController> extends StatefulWidget {
   BlocWidget({
     Key key,
-    @required this.controller,
-    @required this.builder,
-    this.builderOnError,
-    this.builderOnClose,
-  })  : assert(controller != null),
-        assert(builder != null),
-        super(key: key);
+  }) : super(key: key);
 
-  /// A factory constructor that subscribes to a [BlocController] of the
-  /// specified type that has been injected into the widget tree as an
-  /// ancestor to this widget.
-  factory BlocWidget.inherited({
-    Key key,
-    @required BuildContext context,
-    @required BlocBuilder<B> builder,
-    BlocBuilderOnError<B> builderOnError,
-    BlocBuilderOnClose<B> builderOnClose,
-  }) {
-    final controller = InheritedBloc.of<B>(context);
-    assert(controller != null);
+  // A really janky way to store a reference to the state in order to expose the
+  // controller object to the extending class. (Temporary while I hunt for a
+  // better solution.)
+  final _stateStore = <_BlocWidgetState<B>>[null];
+  B get controller => this._stateStore[0].controller;
 
-    return BlocWidget(
-      key: key,
-      controller: controller,
-      builder: builder,
-      builderOnError: builderOnError,
-      builderOnClose: builderOnClose,
-    );
-  }
+  @protected
+  /// A function to create the [BlocController]. This function is called for the
+  /// first time after `didChangeDependencies` is called for the first time on
+  /// the underlying [State].
+  B createController(BuildContext context);
 
-  /// The [BlocController] that this widget subscribes to.
-  final B controller;
+  @protected
+  /// The build function for this widget. It is called from the underlying
+  /// [State] object on a rebuild. Follows the same rules as the typical Flutter
+  /// build method.
+  Widget build(BuildContext context);
 
-  /// The builder function for this widget. The function is passed a reference
-  /// to the controller as an argument and is fired once when the widget is
-  /// first built and then again when the controller publishes an update.
-  final BlocBuilder<B> builder;
+  @protected
+  /// An optional build function that is called in the event that the controller's
+  /// underlying stream object reports an error. Redirects to `build` by default.
+  Widget buildOnError(BuildContext context, Object error, StackTrace stackTrace) => build(context);
 
-  /// An optional builder function that fires when the controller reports an
-  /// error. The controller as well as the error and stacktrace are passed to
-  /// the function as arguments.
-  ///
-  /// (If this function is null, the widget will instead print a debug message
-  /// containing the error message and stacktrace.)
-  final BlocBuilderOnError<B> builderOnError;
-
-  /// An optional builder function that fires when the controller reports that
-  /// its underlying stream has closed. The controller is passed to the
-  /// function as arguments.
-  final BlocBuilderOnClose<B> builderOnClose;
+  @protected
+  /// An optional build function that is called in the event that the controller's
+  /// underlying stream object has closed. Redirects to `build` by default.
+  Widget buildOnClose(BuildContext context) => build(context);
 
   @override
   _BlocWidgetState<B> createState() => _BlocWidgetState<B>();
 }
 
-class _BlocWidgetState<B extends BlocController> extends State<BlocWidget<B>> {
-  StreamSubscription _subscription;
-  BlocWidgetBlocState _builderState;
-  Object _error;
-  StackTrace _stackTrace;
+class _BlocWidgetState<B extends BlocController> extends State<BlocWidget> {
+  B controller;
+
+  void _initController() {
+    controller = widget.createController(context);
+    assert(controller != null, 'The bloc controller must not be null.');
+  }
 
   @override
   void initState() {
-    _subscribe();
-
+    widget._stateStore[0] = this;
     super.initState();
   }
 
   @override
-  void dispose() {
+  void didChangeDependencies() {
+    if (controller == null) _initController();
+    widget._stateStore[0] = this;
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(BlocWidget<BlocController> oldWidget) {
+    if (controller == null) _initController();
+    widget._stateStore[0] = this;
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  dispose() {
+    controller?.dispose();
     super.dispose();
   }
 
   @override
-  void didUpdateWidget(BlocWidget<B> oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    if (_subscription != null) {
-      _unsubscribe();
-    }
-    _subscribe();
-  }
-
-  void _onData(B value) {
-    setState(() {
-      _builderState = BlocWidgetBlocState.normal;
-    });
-  }
-
-  void _onError(Object error, StackTrace stackTrace) {
-    if (widget.builderOnError == null) {
-      print('[WARNING] Subscribed bloc stream threw an error.');
-      print(stackTrace);
-    }
-
-    setState(() {
-      _error = error;
-      _stackTrace = stackTrace;
-      _builderState = BlocWidgetBlocState.error;
-    });
-  }
-
-  void _onDone() {
-    setState(() {
-      _builderState = BlocWidgetBlocState.done;
-    });
-  }
-
-  void _subscribe() {
-    _subscription =
-        widget.controller.listen(_onData, onError: _onError, onDone: _onDone);
-  }
-
-  void _unsubscribe() {
-    if (_subscription == null) {
-      _subscription.cancel();
-      _subscription = null;
-    }
-  }
-
-  @override
   Widget build(BuildContext cxt) {
-    if (_builderState == BlocWidgetBlocState.done &&
-        widget.builderOnClose != null) {
-      return widget.builderOnClose(cxt, widget.controller);
-    }
-
-    if (_builderState == BlocWidgetBlocState.error &&
-        widget.builderOnError != null) {
-      return widget.builderOnError(cxt, widget.controller, _error, _stackTrace);
-    }
-
-    return widget.builder(cxt, widget.controller);
+    return BlocBuilder(
+      controller: controller,
+      autoDispose: true,
+      builder: (_, __) => widget.build(cxt),
+      builderOnError: (_, __, err, st) => widget.buildOnError(cxt, err, st),
+      builderOnClose: (_, __) => widget.buildOnClose(cxt),
+    );
   }
 }

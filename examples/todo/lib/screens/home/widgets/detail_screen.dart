@@ -13,9 +13,9 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext cxt) {
-    return BlocStateWidget<TodoController, TodoState>.inherited(
+    return BlocBuilder<TodoController>.inherited(
       context: cxt,
-      builder: (_, bloc, state) => Scaffold(
+      builder: (_, bloc) => Scaffold(
             appBar: AppBar(
               title: Text('Todo Details'),
               actions: [

@@ -43,12 +43,14 @@ class MyAppState extends State<MyApp> {
 class SimpleCounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // You can get the controller via InheritedBloc.of...
     final controller = InheritedBloc.of<CounterBlocController>(context);
 
     return Container(
       padding: EdgeInsets.all(8),
-      child: BlocWidget(
-          controller: controller,
+      // ...or by using BlocBuilder's `inherited` constructor
+      child: BlocBuilder<CounterBlocController>.inherited(
+          context: context,
           builder: (cxt, bloc) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

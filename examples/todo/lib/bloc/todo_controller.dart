@@ -2,48 +2,42 @@ import 'package:bloc_lite/bloc_lite.dart';
 import 'package:bloc_lite_todo/model/enums.dart';
 import 'package:bloc_lite_todo/model/todo.dart';
 
-class TodoController extends BlocStateController<TodoState> {
-  TodoController([TodoState state]) : super.withState(state);
+class TodoController extends BlocController {
+  TodoController([TodoState state]) : this.state = state ?? TodoState();
 
-  @override
-  TodoState get initialState => TodoState();
+  final TodoState state;
 
   void addTodo(Todo todo) {
-    state.mutate(() {
-      state.todos.add(todo);
-    });
+    state.todos.add(todo);
+    publishUpdate();
   }
 
   void removeTodo(Todo todo) {
-    state.mutate(() {
-      state.todos.remove(todo);
-    });
+    state.todos.remove(todo);
+    publishUpdate();
   }
 
   void updateTodo(Todo todo, {String task, String note, bool complete}) {
-    state.mutate(() {
-      final idx = state.todos.indexOf(todo);
-      state.todos[idx].task = task ?? todo.task;
-      state.todos[idx].note = note ?? todo.note;
-      state.todos[idx].complete = complete ?? todo.complete;
-    });
+    final idx = state.todos.indexOf(todo);
+    state.todos[idx].task = task ?? todo.task;
+    state.todos[idx].note = note ?? todo.note;
+    state.todos[idx].complete = complete ?? todo.complete;
+    publishUpdate();
   }
 
   void clearCompleted() {
-    state.mutate(() {
-      state.todos.removeWhere((todo) => todo.complete);
-    });
+    state.todos.removeWhere((todo) => todo.complete);
+    publishUpdate();
   }
 
   void toggleAll() {
-    state.mutate(() {
-      final allCompleted = state.allComplete;
-      state.todos.forEach((todo) => todo.complete = !allCompleted);
-    });
+    final allCompleted = state.allComplete;
+    state.todos.forEach((todo) => todo.complete = !allCompleted);
+    publishUpdate();
   }
 }
 
-class TodoState extends BlocState {
+class TodoState {
   bool isLoading = false;
   List<Todo> todos = [];
 

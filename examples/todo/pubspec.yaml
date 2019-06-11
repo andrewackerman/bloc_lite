@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc_lite_flutter: ^0.1.1
+  bloc_lite_flutter:
+    path: ../../packages/bloc_lite_flutter
   uuid: 2.0.1
 
 dev_dependencies:

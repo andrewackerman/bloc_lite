@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_blocwidget/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_blocwidget/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_blocwidget/build" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_inheritence/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_inheritence/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_inheritence/build" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_state/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_counter_with_state/build" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_with_tree/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_with_tree/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/simple_flutter_with_tree/build" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/todo/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/todo/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/todo/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bloc_lite/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bloc_lite/build" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bloc_lite_flutter/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/bloc_lite_flutter/build" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
+  </component>
+</module>

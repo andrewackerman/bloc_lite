@@ -48,7 +48,7 @@ class SimpleCounterPageState extends State<SimpleCounterPage> {
           Text(
             'Current value of the counter bloc:',
           ),
-          BlocWidget(
+          BlocBuilder(
               controller: controller,
               builder: (cxt, bloc) {
                 return Text(

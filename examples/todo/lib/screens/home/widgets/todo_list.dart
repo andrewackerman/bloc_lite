@@ -19,14 +19,14 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext cxt) {
-    return BlocWidget<HomeScreenController>.inherited(
+    return BlocBuilder<HomeScreenController>.inherited(
       context: cxt,
       builder: (cxt, homeBloc) =>
-          BlocStateWidget<TodoController, TodoState>.inherited(
+          BlocBuilder<TodoController>.inherited(
             context: cxt,
-            builder: (cxt, todoBloc, todoState) {
+            builder: (cxt, todoBloc) {
               final filteredTodos =
-                  todoState.filterTodos(homeBloc.activeFilter);
+                todoBloc.state.filterTodos(homeBloc.activeFilter);
               return Container(
                 child: homeBloc.isLoading
                     ? Center(child: CircularProgressIndicator())

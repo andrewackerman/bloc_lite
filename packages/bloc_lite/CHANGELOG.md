@@ -1,3 +1,7 @@
+## [0.2.0]
+
+* Removed `BlocState` and `BlocControllerWithState` classes. Dedicated state objects are redundant when state can be stored in the controller itseld and counterproductive to the goals of bloc_lite.
+
 ## [0.1.3]
 
 * Minor update to README

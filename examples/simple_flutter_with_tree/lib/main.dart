@@ -54,9 +54,9 @@ class SimpleCounterPage extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.all(8),
-      child: BlocWidget(
+      child: BlocBuilder(
         controller: blocA,
-        builder: (_, __) => BlocWidget(
+        builder: (_, __) => BlocBuilder(
               controller: blocB,
               builder: (_, __) {
                 return Column(

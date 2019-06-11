@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="092daec1-6d6c-48f8-b256-9fd847ff1e62" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/bloc_lite.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_counter/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_counter/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_counter/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/.settings/org.eclipse.buildship.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/kotlin/com/example/simple_flutter_counter_with_state/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_counter_with_state/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_with_tree/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_with_tree/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_with_tree/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_with_tree/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/simple_flutter_with_tree/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/examples/simple_flutter_with_tree/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/lib/bloc/app.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/lib/bloc/todo_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/lib/bloc/todo_controller.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/lib/screens/home/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/lib/screens/home/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/detail_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/stats_counter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/stats_counter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/todo_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/todo_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/todo/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/examples/todo/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/__404error.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController-class.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/BlocController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/dispose.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/hashCode.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/noSuchMethod.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/onError.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/operator_equals.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/postUpdatePublished.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/preUpdatePublished.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/publishUpdate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/runtimeType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/sink.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/stream.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/subscribeToUpdates.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocController/toString.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState-class.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/BlocState.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/controller.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/dispose.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/hashCode.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/mutate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/noSuchMethod.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/onError.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/operator_equals.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/postMutate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/preMutate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/publishMutation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/runtimeType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/sink.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/stream.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/subscribeToMutations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocState/toString.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController-class.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/BlocStateController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/BlocStateController.withState.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/initialState.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/onStateDone.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/onStateError.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/onStateMutate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/registerState.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/BlocStateController/state.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/bloc_lite/bloc_lite-library.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/categories.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/index.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/URI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/github.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/highlight.pack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/play_button.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/sdk_footer_text.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/doc/api/static-assets/typeahead.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/lib/bloc_lite.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite/lib/bloc_lite.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/lib/src/bloc_state.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite/lib/src/bloc_state_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/bloc_lite_flutter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/bloc_lite_flutter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_state_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_builder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/inherited_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/inherited_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/typedefs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/typedefs.dart" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/todo/lib/bloc/todo_controller.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/bloc_lite/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="888">
+              <caret line="104" column="3" selection-start-line="104" selection-start-column="3" selection-end-line="104" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="180" column="13" lean-forward="true" selection-start-line="180" selection-start-column="13" selection-end-line="180" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget/lib/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/bloc_lite_flutter.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_widget.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://E:/lib/mobile/flutter/packages/flutter/lib/src/widgets/framework.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="3899" column="35" selection-start-line="3899" selection-start-column="24" selection-end-line="3899" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>BlocWidget</find>
+      <find>StatefulWidget</find>
+      <find>createState</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>BlocBuilder</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/packages/bloc_lite/lib/bloc_lite.dart" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/typedefs.dart" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/inherited_bloc.dart" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_counter/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_counter/lib/main.dart" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/lib/main.dart" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_with_tree/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_with_tree/lib/main.dart" />
+        <option value="$PROJECT_DIR$/examples/todo/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/detail_screen.dart" />
+        <option value="$PROJECT_DIR$/examples/todo/lib/bloc/todo_controller.dart" />
+        <option value="$PROJECT_DIR$/examples/todo/lib/screens/home/home_screen.dart" />
+        <option value="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/todo_list.dart" />
+        <option value="$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/stats_counter.dart" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_builder.dart" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget/lib/main.dart" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/bloc_lite_flutter.dart" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite/README.md" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/README.md" />
+        <option value="$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_widget.dart" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="507" />
+    <option name="y" value="-14" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="simple_flutter_counter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="simple_flutter_counter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="simple_flutter_counter_with_blocwidget" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="simple_flutter_counter_with_blocwidget" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+              <item name="todo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="bloc_lite_flutter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="bloc_lite_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bloc_lite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bloc_lite" type="462c0819:PsiDirectoryNode" />
+              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="bloc_lite_flutter" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Flutter.Simple Flutter Counter With BlocWidget">
+    <configuration name="Flutter Todo" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/examples/todo/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Simple Flutter Counter With BlocWidget" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Simple Flutter Counter With Inheritance" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Simple Flutter Counter With Tree" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/examples/simple_flutter_with_tree/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Simple Flutter Counter" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/examples/simple_flutter_counter/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flutter.Simple Flutter Counter" />
+      <item itemvalue="Flutter.Simple Flutter Counter With BlocWidget" />
+      <item itemvalue="Flutter.Simple Flutter Counter With Inheritance" />
+      <item itemvalue="Flutter.Simple Flutter Counter With Tree" />
+      <item itemvalue="Flutter.Flutter Todo" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="092daec1-6d6c-48f8-b256-9fd847ff1e62" name="Default Changelist" comment="" />
+      <created>1560265822404</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560265822404</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1456" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13314785" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Dart Analysis" weight="0.17611489" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.24036281" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32955405" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32955405" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Flutter Inspector" />
+      <window_info anchor="right" id="Flutter Outline" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite/lib/src/bloc_state_controller.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/inherited_bloc_tree.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/app.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/inherited_bloc.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite/lib/bloc_lite.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/typedefs.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter_with_inheritence/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_with_tree/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="52" column="64" lean-forward="true" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_with_tree/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/detail_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/bloc/app.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://E:/lib/mobile/flutter/.pub-cache/hosted/pub.dartlang.org/bloc_lite-0.1.3/lib/src/bloc_controller.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/screens/home/home_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="52" column="60" selection-start-line="52" selection-start-column="60" selection-end-line="52" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/todo_list.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/screens/home/widgets/stats_counter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_builder.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="128" column="30" selection-start-line="128" selection-start-column="30" selection-end-line="128" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite/lib/src/bloc_controller.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="12" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/simple_flutter_counter_with_blocwidget/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="81" lean-forward="true" selection-start-line="3" selection-start-column="81" selection-end-line="3" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/todo/lib/bloc/todo_controller.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="104" column="3" selection-start-line="104" selection-start-column="3" selection-end-line="104" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/lib/mobile/flutter/packages/flutter/lib/src/widgets/framework.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="3899" column="35" selection-start-line="3899" selection-start-column="24" selection-end-line="3899" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="180" column="13" lean-forward="true" selection-start-line="180" selection-start-column="13" selection-end-line="180" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/bloc_lite_flutter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/bloc_lite_flutter/lib/src/bloc_widget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

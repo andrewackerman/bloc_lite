@@ -53,8 +53,6 @@
     <ol>
       <li class="section-title"><a href="bloc_lite/bloc_lite-library.html#classes">Classes</a></li>
       <li><a href="bloc_lite/BlocController-class.html">BlocController</a></li>
-      <li><a href="bloc_lite/BlocState-class.html">BlocState</a></li>
-      <li><a href="bloc_lite/BlocStateController-class.html">BlocStateController</a></li>
     
     
     
@@ -75,18 +73,6 @@ a <code>Observable</code> for more control over the output. Updates are typicall
 by calling the <code>publishUpdate</code> method.</p>
     </section>
     
-    <section>
-      <dl class="dl-horizontal">
-
-
-
-        <dt>Implementers</dt>
-        <dd><ul class="comma-separated clazz-relationships">
-          <li><a href="bloc_lite/BlocStateController-class.html">BlocStateController</a></li>
-        </ul></dd>
-
-      </dl>
-    </section>
 
     <section class="summary offset-anchor" id="constructors">
       <h2>Constructors</h2>
@@ -152,6 +138,16 @@ by calling the <code>publishUpdate</code> method.</p>
           Closes the underlying stream. Inheriting classes that overload this method must call <code>super.dispose()</code>.
                   <div class="features">@mustCallSuper</div>
 </dd>
+        <dt id="listen" class="callable">
+          <span class="name"><a href="bloc_lite/BlocController/listen.html">listen</a></span><span class="signature">(<wbr><span class="parameter" id="listen-param-onUpdate"><span class="type-annotation">void</span> <span class="parameter-name">onUpdate</span>(<span class="parameter" id="onUpdate-param-"><span class="type-annotation"><a href="bloc_lite/BlocController-class.html">BlocController</a></span></span>), {</span> <span class="parameter" id="listen-param-onError"><span class="type-annotation">void</span> <span class="parameter-name">onError</span>(<span class="parameter" id="onError-param-"><span class="type-annotation">Error</span>, </span> <span class="parameter" id="onError-param-"><span class="type-annotation">StackTrace</span></span>), </span> <span class="parameter" id="listen-param-onDone"><span class="type-annotation">void</span> <span class="parameter-name">onDone</span>()</span> })
+            <span class="returntype parameter">&#8594; StreamSubscription</span>
+          </span>
+                  </dt>
+        <dd>
+          Registers the given callback methods with the underlying stream and returns
+the resulting <code>StreamSubscription</code>.
+                  
+</dd>
         <dt id="onError" class="callable">
           <span class="name"><a href="bloc_lite/BlocController/onError.html">onError</a></span><span class="signature">(<wbr><span class="parameter" id="onError-param-error"><span class="type-annotation">Object</span> <span class="parameter-name">error</span>, </span> <span class="parameter" id="onError-param-stackTrace"><span class="type-annotation">StackTrace</span> <span class="parameter-name">stackTrace</span></span>)
             <span class="returntype parameter">&#8594; void</span>
@@ -181,21 +177,11 @@ by calling the <code>publishUpdate</code> method.</p>
 </dd>
         <dt id="publishUpdate" class="callable">
           <span class="name"><a href="bloc_lite/BlocController/publishUpdate.html">publishUpdate</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; Future<span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+            <span class="returntype parameter">&#8594; void</span>
           </span>
                   </dt>
         <dd>
           Notifies the underlying stream of an update. Passes a reference to this object to the stream.
-                  
-</dd>
-        <dt id="subscribeToUpdates" class="callable">
-          <span class="name"><a href="bloc_lite/BlocController/subscribeToUpdates.html">subscribeToUpdates</a></span><span class="signature">(<wbr><span class="parameter" id="subscribeToUpdates-param-onUpdate"><span class="type-annotation">void</span> <span class="parameter-name">onUpdate</span>(<span class="parameter" id="onUpdate-param-"><span class="type-annotation"><a href="bloc_lite/BlocController-class.html">BlocController</a></span></span>), {</span> <span class="parameter" id="subscribeToUpdates-param-onError"><span class="type-annotation">void</span> <span class="parameter-name">onError</span>(<span class="parameter" id="onError-param-"><span class="type-annotation">Error</span>, </span> <span class="parameter" id="onError-param-"><span class="type-annotation">StackTrace</span></span>), </span> <span class="parameter" id="subscribeToUpdates-param-onDone"><span class="type-annotation">void</span> <span class="parameter-name">onDone</span>()</span> })
-            <span class="returntype parameter">&#8594; StreamSubscription</span>
-          </span>
-                  </dt>
-        <dd>
-          Registers the given callback methods with the underlying stream and returns
-the resulting <code>StreamSubscription</code>.
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -254,11 +240,11 @@ the resulting <code>StreamSubscription</code>.
     
       <li class="section-title"><a href="bloc_lite/BlocController-class.html#instance-methods">Methods</a></li>
       <li><a href="bloc_lite/BlocController/dispose.html">dispose</a></li>
+      <li><a href="bloc_lite/BlocController/listen.html">listen</a></li>
       <li><a href="bloc_lite/BlocController/onError.html">onError</a></li>
       <li><a href="bloc_lite/BlocController/postUpdatePublished.html">postUpdatePublished</a></li>
       <li><a href="bloc_lite/BlocController/preUpdatePublished.html">preUpdatePublished</a></li>
       <li><a href="bloc_lite/BlocController/publishUpdate.html">publishUpdate</a></li>
-      <li><a href="bloc_lite/BlocController/subscribeToUpdates.html">subscribeToUpdates</a></li>
       <li class="inherited"><a href="bloc_lite/BlocController/noSuchMethod.html">noSuchMethod</a></li>
       <li class="inherited"><a href="bloc_lite/BlocController/toString.html">toString</a></li>
     
@@ -274,7 +260,7 @@ the resulting <code>StreamSubscription</code>.
 
 <footer>
   <span class="no-break">
-    bloc_lite 0.1.1
+    bloc_lite 0.1.3
   </span>
 
   

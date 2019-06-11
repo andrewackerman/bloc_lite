@@ -8,7 +8,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc_lite_flutter: ^0.1.1
+  bloc_lite_flutter:
+    path: ../../packages/bloc_lite_flutter
 
 dev_dependencies:
   flutter_test:

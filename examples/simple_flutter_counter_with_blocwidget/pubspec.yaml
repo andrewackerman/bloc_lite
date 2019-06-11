@@ -1,0 +1,19 @@
+name: simple_flutter_counter_with_blocwidget
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bloc_lite_flutter:
+    path: ../../packages/bloc_lite_flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

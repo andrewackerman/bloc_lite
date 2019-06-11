@@ -5,9 +5,9 @@ import 'package:bloc_lite_todo/bloc/todo_controller.dart';
 class StatsCounter extends StatelessWidget {
   @override
   Widget build(BuildContext cxt) {
-    return BlocStateWidget<TodoController, TodoState>.inherited(
+    return BlocBuilder<TodoController>.inherited(
       context: cxt,
-      builder: (_, bloc, state) => Center(
+      builder: (_, bloc) => Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -21,7 +21,7 @@ class StatsCounter extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 24),
                   child: Text(
-                    '${state.numCompleted}',
+                    '${bloc.state.numCompleted}',
                     style: Theme.of(cxt).textTheme.subhead,
                   ),
                 ),
@@ -35,7 +35,7 @@ class StatsCounter extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 24),
                   child: Text(
-                    '${state.numActive}',
+                    '${bloc.state.numActive}',
                     style: Theme.of(cxt).textTheme.subhead,
                   ),
                 ),
